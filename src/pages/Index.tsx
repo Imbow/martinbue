@@ -1,3 +1,4 @@
+
 import { useRef, useState } from "react";
 import { PlayCircle, ArrowRight, VideoIcon, Film, Clapperboard, Menu, X } from "lucide-react";
 
@@ -23,14 +24,14 @@ const Index = () => {
       <nav className="fixed top-0 z-50 w-full bg-black/10 backdrop-blur-md">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            <a href="/" className="text-xl font-bold text-white">
+            <a href="/" className="text-xl font-bold text-white hover:text-orange-400 transition-colors">
               VideoStudio
             </a>
             
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden text-white"
+              className="lg:hidden text-white hover:text-orange-400 transition-colors"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -39,19 +40,19 @@ const Index = () => {
             <div className="hidden lg:flex items-center space-x-8">
               <button
                 onClick={() => scrollToSection(workRef)}
-                className="text-white hover:text-gray-300 transition-colors"
+                className="text-white hover:text-orange-400 transition-colors"
               >
                 Work
               </button>
               <button
                 onClick={() => scrollToSection(servicesRef)}
-                className="text-white hover:text-gray-300 transition-colors"
+                className="text-white hover:text-orange-400 transition-colors"
               >
                 Services
               </button>
               <button
                 onClick={() => scrollToSection(contactRef)}
-                className="text-white hover:text-gray-300 transition-colors"
+                className="text-white hover:text-orange-400 transition-colors"
               >
                 Contact
               </button>
@@ -64,19 +65,19 @@ const Index = () => {
               <div className="flex flex-col space-y-4">
                 <button
                   onClick={() => scrollToSection(workRef)}
-                  className="text-white hover:text-gray-300 transition-colors"
+                  className="text-white hover:text-orange-400 transition-colors"
                 >
                   Work
                 </button>
                 <button
                   onClick={() => scrollToSection(servicesRef)}
-                  className="text-white hover:text-gray-300 transition-colors"
+                  className="text-white hover:text-orange-400 transition-colors"
                 >
                   Services
                 </button>
                 <button
                   onClick={() => scrollToSection(contactRef)}
-                  className="text-white hover:text-gray-300 transition-colors"
+                  className="text-white hover:text-orange-400 transition-colors"
                 >
                   Contact
                 </button>
@@ -100,14 +101,14 @@ const Index = () => {
         <div className="relative z-10 flex h-full items-center justify-center px-4">
           <div className="text-center">
             <h1 className="animate-fade-in text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Crafting Visual Stories
+              Crafting <span className="text-orange-400">Visual</span> Stories
             </h1>
             <p className="mx-auto mt-6 max-w-lg animate-fade-in text-lg text-gray-200 opacity-0 [animation-delay:300ms]">
               Professional videographer specializing in creating compelling visual narratives
             </p>
             <button
               onClick={scrollToServices}
-              className="group mt-8 inline-flex animate-fade-in items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black opacity-0 transition-transform hover:scale-105 [animation-delay:600ms]"
+              className="group mt-8 inline-flex animate-fade-in items-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-sm font-medium text-white opacity-0 transition-all duration-300 hover:bg-orange-600 hover:scale-105 [animation-delay:600ms]"
             >
               View Services
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -149,10 +150,10 @@ const Index = () => {
                   className="aspect-video w-full object-cover"
                 />
                 <div className="absolute inset-0 z-10 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
-                  <PlayCircle className="h-16 w-16 text-white" />
+                  <PlayCircle className="h-16 w-16 text-orange-400" />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <h3 className="text-xl font-medium text-white">{work.title}</h3>
+                  <h3 className="text-xl font-medium text-white group-hover:text-orange-400 transition-colors">{work.title}</h3>
                 </div>
               </div>
             ))}
@@ -187,11 +188,11 @@ const Index = () => {
             ].map((service, index) => (
               <div
                 key={service.title}
-                className="group animate-fade-in rounded-xl bg-white p-6 shadow-lg transition-transform hover:scale-[1.02] opacity-0"
+                className="group animate-fade-in rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-orange-100/50 opacity-0"
                 style={{ animationDelay: `${(index + 1) * 200}ms` }}
               >
-                <service.icon className="h-12 w-12 text-gray-900" />
-                <h3 className="mt-4 text-xl font-medium">{service.title}</h3>
+                <service.icon className="h-12 w-12 text-orange-500" />
+                <h3 className="mt-4 text-xl font-medium group-hover:text-orange-500 transition-colors">{service.title}</h3>
                 <p className="mt-2 text-gray-600">{service.description}</p>
               </div>
             ))}
@@ -203,11 +204,11 @@ const Index = () => {
       <section ref={contactRef} className="py-20">
         <div className="container px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="animate-fade-in text-3xl font-bold">Let's Create Something Amazing</h2>
+            <h2 className="animate-fade-in text-3xl font-bold">Let's Create Something <span className="text-orange-500">Amazing</span></h2>
             <p className="mx-auto mt-4 animate-fade-in text-gray-600 opacity-0 [animation-delay:200ms]">
               Ready to bring your vision to life? Get in touch to discuss your project
             </p>
-            <button className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-black px-8 py-4 text-sm font-medium text-white opacity-0 transition-transform hover:scale-105 [animation-delay:400ms]">
+            <button className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-orange-500 px-8 py-4 text-sm font-medium text-white opacity-0 transition-all duration-300 hover:bg-orange-600 hover:scale-105 [animation-delay:400ms]">
               Contact Me
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
