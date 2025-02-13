@@ -1,16 +1,91 @@
-
-import { useRef } from "react";
-import { PlayCircle, ArrowRight, VideoIcon, Film, Clapperboard } from "lucide-react";
+import { useRef, useState } from "react";
+import { PlayCircle, ArrowRight, VideoIcon, Film, Clapperboard, Menu, X } from "lucide-react";
 
 const Index = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+    setIsMenuOpen(false);
+  };
+
+  const workRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
+      {/* Navigation */}
+      <nav className="fixed top-0 z-50 w-full bg-black/10 backdrop-blur-md">
+        <div className="container mx-auto px-4">
+          <div className="flex h-16 items-center justify-between">
+            <a href="/" className="text-xl font-bold text-white">
+              VideoStudio
+            </a>
+            
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden text-white"
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <button
+                onClick={() => scrollToSection(workRef)}
+                className="text-white hover:text-gray-300 transition-colors"
+              >
+                Work
+              </button>
+              <button
+                onClick={() => scrollToSection(servicesRef)}
+                className="text-white hover:text-gray-300 transition-colors"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => scrollToSection(contactRef)}
+                className="text-white hover:text-gray-300 transition-colors"
+              >
+                Contact
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <div className="lg:hidden pb-4">
+              <div className="flex flex-col space-y-4">
+                <button
+                  onClick={() => scrollToSection(workRef)}
+                  className="text-white hover:text-gray-300 transition-colors"
+                >
+                  Work
+                </button>
+                <button
+                  onClick={() => scrollToSection(servicesRef)}
+                  className="text-white hover:text-gray-300 transition-colors"
+                >
+                  Services
+                </button>
+                <button
+                  onClick={() => scrollToSection(contactRef)}
+                  className="text-white hover:text-gray-300 transition-colors"
+                >
+                  Contact
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="relative h-screen w-full clip-triangle bg-black">
         <video
@@ -42,7 +117,7 @@ const Index = () => {
       </section>
 
       {/* Recent Work */}
-      <section className="py-20">
+      <section ref={workRef} className="py-20">
         <div className="container px-4">
           <h2 className="animate-fade-in text-center text-3xl font-bold">Recent Work</h2>
           <p className="mx-auto mt-4 max-w-2xl animate-fade-in text-center text-gray-600 opacity-0 [animation-delay:200ms]">
@@ -125,7 +200,7 @@ const Index = () => {
       </section>
 
       {/* Contact */}
-      <section className="py-20">
+      <section ref={contactRef} className="py-20">
         <div className="container px-4">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="animate-fade-in text-3xl font-bold">Let's Create Something Amazing</h2>
