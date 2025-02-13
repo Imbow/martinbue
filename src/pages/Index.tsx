@@ -131,27 +131,31 @@ const Index = () => {
                 icon: VideoIcon,
                 title: "Commercial Production",
                 description: "High-quality commercials and promotional videos that capture attention and drive engagement",
+                path: "/services/commercial-production"
               },
               {
                 icon: Film,
                 title: "Corporate Videos",
                 description: "Professional corporate videos for training, presentations, and internal communications",
+                path: "/services/corporate-videos"
               },
               {
                 icon: Clapperboard,
                 title: "Event Coverage",
                 description: "Comprehensive event documentation from multiple angles with professional editing",
+                path: "/services/event-coverage"
               },
             ].map((service, index) => (
-              <div
+              <Link
                 key={service.title}
-                className="group animate-fade-in rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg opacity-0"
+                to={service.path}
+                className="group animate-fade-in rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg opacity-0 cursor-pointer"
                 style={{ animationDelay: `${(index + 1) * 200}ms` }}
               >
                 <service.icon className="h-12 w-12 text-gray-900" />
                 <h3 className="mt-4 text-xl font-medium group-hover:text-gray-700 transition-colors">{service.title}</h3>
                 <p className="mt-2 text-gray-600">{service.description}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
