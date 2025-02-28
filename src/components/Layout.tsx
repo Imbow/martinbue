@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Instagram, Youtube } from "lucide-react";
+import { Menu, X, Instagram } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,9 +12,9 @@ const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden bg-black text-white">
       {/* Fixed Navigation */}
-      <nav className="fixed top-0 z-50 w-full bg-black/10 backdrop-blur-md">
+      <nav className="fixed top-0 z-50 w-full bg-black/80 backdrop-blur-md">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             <Link to="/" className="flex items-center gap-2 text-xl font-bold text-white hover:text-gray-200 transition-colors">
@@ -61,14 +61,6 @@ const Layout = ({ children }: LayoutProps) => {
             {/* Social Icons */}
             <div className="hidden lg:flex items-center gap-4">
               <a 
-                href="https://www.youtube.com/@martinbue" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white hover:text-gray-200 transition-colors"
-              >
-                <Youtube className="h-6 w-6" />
-              </a>
-              <a 
                 href="https://www.instagram.com/martinbue90/" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -104,15 +96,6 @@ const Layout = ({ children }: LayoutProps) => {
                 >
                   Contact
                 </Link>
-                <a 
-                  href="https://www.youtube.com/@martinbue" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-gray-200 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  YouTube
-                </a>
                 <a 
                   href="https://www.instagram.com/martinbue90/" 
                   target="_blank" 
