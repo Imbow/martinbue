@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Instagram } from "lucide-react";
+import { Menu, X, Instagram, Youtube } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -17,7 +17,8 @@ const Layout = ({ children }: LayoutProps) => {
       <nav className="fixed top-0 z-50 w-full bg-black/10 backdrop-blur-md">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            <Link to="/" className="text-xl font-bold text-white hover:text-gray-200 transition-colors">
+            <Link to="/" className="flex items-center gap-2 text-xl font-bold text-white hover:text-gray-200 transition-colors">
+              <img src="/lovable-uploads/60348b7b-1316-460a-a64a-92fde2ce047d.png" alt="Martin Bue Logo" className="h-8 w-auto" />
               Martin Bue
             </Link>
             
@@ -57,15 +58,25 @@ const Layout = ({ children }: LayoutProps) => {
               </Link>
             </div>
 
-            {/* Instagram Icon */}
-            <a 
-              href="https://www.instagram.com/martinbue90/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hidden lg:block text-white hover:text-gray-200 transition-colors"
-            >
-              <Instagram className="h-6 w-6" />
-            </a>
+            {/* Social Icons */}
+            <div className="hidden lg:flex items-center gap-4">
+              <a 
+                href="https://www.youtube.com/@martinbue" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white hover:text-gray-200 transition-colors"
+              >
+                <Youtube className="h-6 w-6" />
+              </a>
+              <a 
+                href="https://www.instagram.com/martinbue90/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white hover:text-gray-200 transition-colors"
+              >
+                <Instagram className="h-6 w-6" />
+              </a>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
@@ -93,6 +104,15 @@ const Layout = ({ children }: LayoutProps) => {
                 >
                   Contact
                 </Link>
+                <a 
+                  href="https://www.youtube.com/@martinbue" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-gray-200 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  YouTube
+                </a>
                 <a 
                   href="https://www.instagram.com/martinbue90/" 
                   target="_blank" 

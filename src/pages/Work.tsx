@@ -5,17 +5,6 @@ import { Link } from "react-router-dom";
 const Work = () => {
   return (
     <div className="min-h-screen w-full">
-      {/* Navigation */}
-      <nav className="fixed top-0 z-50 w-full bg-black/10 backdrop-blur-md">
-        <div className="container mx-auto px-4">
-          <div className="flex h-16 items-center justify-between">
-            <Link to="/" className="text-xl font-bold text-white hover:text-gray-200 transition-colors">
-              VideoStudio
-            </Link>
-          </div>
-        </div>
-      </nav>
-
       {/* Work Grid */}
       <div className="container px-4 pt-32 pb-20">
         <div className="flex items-center gap-4 mb-8">
@@ -27,6 +16,29 @@ const Work = () => {
             Back to Home
           </Link>
         </div>
+        
+        {/* Featured Showreel Section */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold mb-6">Featured Showreel</h2>
+          <div className="relative aspect-video w-full max-w-5xl mx-auto overflow-hidden rounded-xl shadow-xl">
+            {/* Replace with your showreel video */}
+            <div className="relative w-full h-full bg-gray-900 rounded-xl overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=1200" 
+                alt="Showreel thumbnail" 
+                className="w-full h-full object-cover opacity-75"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <PlayCircle className="h-24 w-24 text-white" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+                <h3 className="text-2xl font-bold text-white">Martin Bue Showreel 2023</h3>
+                <p className="text-gray-300 mt-2">A collection of my finest work and creative vision</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <h1 className="text-4xl font-bold mb-4">Our Work</h1>
         <p className="text-gray-600 max-w-2xl mb-12">
           Explore our portfolio of video projects, from brand campaigns to corporate events.
