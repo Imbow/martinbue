@@ -54,4 +54,9 @@
   .hover-video-card:hover::after {
     @apply opacity-0;
   }
+  
+  /* Ensure all videos have rounded corners */
+  video {
+    @apply rounded-xl;
+  }
 }
