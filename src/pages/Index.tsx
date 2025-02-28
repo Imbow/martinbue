@@ -38,7 +38,7 @@ const Index = () => {
       {/* Featured Work Section (Replaced Services) */}
       <section className="bg-gray-50 py-20">
         <div className="container px-4">
-          <h2 className="animate-fade-in text-center text-3xl font-bold">Featured Work</h2>
+          <h2 className="animate-fade-in text-center text-3xl font-bold text-black">Featured Work</h2>
           <p className="mx-auto mt-4 max-w-2xl animate-fade-in text-center text-gray-600 opacity-0 [animation-delay:200ms]">
             A selection of my best video projects
           </p>
