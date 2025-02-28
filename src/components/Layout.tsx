@@ -59,7 +59,7 @@ const Layout = ({ children }: LayoutProps) => {
 
             {/* Instagram Icon */}
             <a 
-              href="https://www.instagram.com/" 
+              href="https://www.instagram.com/martinbue90/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hidden lg:block text-white hover:text-gray-200 transition-colors"
@@ -94,7 +94,7 @@ const Layout = ({ children }: LayoutProps) => {
                   Contact
                 </Link>
                 <a 
-                  href="https://www.instagram.com/" 
+                  href="https://www.instagram.com/martinbue90/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white hover:text-gray-200 transition-colors"
