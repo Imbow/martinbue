@@ -6,11 +6,11 @@ const Work = () => {
   return (
     <div className="min-h-screen w-full">
       {/* Work Grid */}
-      <div className="container px-4 pt-32 pb-20">
-        <div className="flex items-center gap-4 mb-8">
+      <div className="container px-4 py-8">
+        <div className="pt-8 flex items-center gap-4 mb-8">
           <Link 
             to="/" 
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Home
@@ -19,7 +19,7 @@ const Work = () => {
         
         {/* Featured Showreel Section */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-6">Featured Showreel</h2>
+          <h2 className="text-3xl font-bold mb-6 text-white">Featured Showreel</h2>
           <div className="relative aspect-video w-full max-w-5xl mx-auto overflow-hidden rounded-xl shadow-xl">
             {/* Replace with your showreel video */}
             <div className="relative w-full h-full bg-gray-900 rounded-xl overflow-hidden">
@@ -39,8 +39,8 @@ const Work = () => {
           </div>
         </div>
         
-        <h1 className="text-4xl font-bold mb-4">Our Work</h1>
-        <p className="text-gray-600 max-w-2xl mb-12">
+        <h1 className="text-4xl font-bold mb-4 text-white">Our Work</h1>
+        <p className="text-gray-300 max-w-2xl mb-12">
           Explore our portfolio of video projects, from brand campaigns to corporate events.
           Each project represents our commitment to excellence in visual storytelling.
         </p>
@@ -96,10 +96,10 @@ const Work = () => {
               <div className="absolute inset-0 z-10 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
                 <PlayCircle className="h-16 w-16 text-white" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/80 to-transparent p-6">
+              <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/90 to-transparent p-6">
                 <span className="text-sm text-gray-300">{work.category}</span>
                 <h3 className="text-xl font-medium text-white transition-colors">{work.title}</h3>
-                <p className="mt-2 text-sm text-gray-300">{work.description}</p>
+                <p className="mt-2 text-sm text-white">{work.description}</p>
               </div>
             </div>
           ))}

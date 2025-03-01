@@ -59,4 +59,23 @@
   video {
     @apply rounded-xl;
   }
+  
+  /* Adjust mobile navigation dropdown placement */
+  @media (max-width: 768px) {
+    .mobile-nav-dropdown {
+      @apply left-0 right-0 w-full;
+    }
+  }
 }
+
+/* Fix for mobile navigation */
+@media (max-width: 768px) {
+  .mobile-menu-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+  }
+}
+

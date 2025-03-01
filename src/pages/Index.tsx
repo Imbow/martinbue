@@ -83,9 +83,9 @@ const Index = () => {
                     <PlayCircle className="h-16 w-16 text-white" />
                   </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-xl font-medium group-hover:text-gray-700 transition-colors">{work.title}</h3>
-                  <p className="mt-2 text-gray-600">{work.description}</p>
+                <div className="p-4 bg-white bg-opacity-90">
+                  <h3 className="text-xl font-medium text-gray-900 group-hover:text-black transition-colors">{work.title}</h3>
+                  <p className="mt-2 text-gray-800">{work.description}</p>
                 </div>
               </Link>
             ))}
@@ -93,7 +93,7 @@ const Index = () => {
           <div className="mt-10 text-center">
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
             >
               See All Work
               <ArrowRight className="h-4 w-4" />
@@ -107,12 +107,12 @@ const Index = () => {
         <div className="container px-4">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="animate-fade-in text-3xl font-bold">Let's Create Something Amazing</h2>
-            <p className="mx-auto mt-4 animate-fade-in text-gray-600 opacity-0 [animation-delay:200ms]">
+            <p className="mx-auto mt-4 animate-fade-in text-white text-opacity-90 opacity-0 [animation-delay:200ms]">
               Ready to bring your vision to life? Get in touch to discuss your project
             </p>
             <Link 
               to="/contact"
-              className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-black px-8 py-4 text-sm font-medium text-white opacity-0 transition-all duration-300 hover:bg-gray-800 hover:scale-105 [animation-delay:400ms]"
+              className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-medium text-black opacity-0 transition-all duration-300 hover:bg-gray-200 hover:scale-105 [animation-delay:400ms]"
             >
               Contact Me
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

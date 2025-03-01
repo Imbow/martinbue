@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { ArrowLeft, Send, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowLeft, Send, Mail, Linkedin, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "@/components/ui/use-toast";
 
@@ -19,7 +19,9 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    // Open mail client with pre-filled email
+    const mailtoLink = `mailto:martinbuep@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+    window.location.href = mailtoLink;
     
     // Show success toast
     toast({
@@ -37,9 +39,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto px-4 py-16 text-white">
       <div className="mb-8">
-        <Link to="/" className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+        <Link to="/" className="inline-flex items-center text-white hover:text-gray-300 transition-colors">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Home
         </Link>
@@ -47,34 +49,34 @@ const Contact = () => {
 
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-4">Get In Touch</h1>
-        <p className="text-lg text-gray-600 mb-12">
+        <p className="text-lg text-gray-200 mb-12">
           Have a project in mind or want to discuss a collaboration? I'd love to hear from you.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="bg-gray-50 p-6 rounded-lg flex flex-col items-center text-center">
-            <Mail className="h-8 w-8 mb-3 text-gray-700" />
+          <a href="mailto:martinbuep@gmail.com" className="bg-gray-800 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-700 transition-colors">
+            <Mail className="h-8 w-8 mb-3 text-white" />
             <h3 className="font-medium mb-1">Email</h3>
-            <p className="text-gray-600">hello@martinbue.com</p>
-          </div>
+            <p className="text-gray-300">martinbuep@gmail.com</p>
+          </a>
           
-          <div className="bg-gray-50 p-6 rounded-lg flex flex-col items-center text-center">
-            <Phone className="h-8 w-8 mb-3 text-gray-700" />
-            <h3 className="font-medium mb-1">Phone</h3>
-            <p className="text-gray-600">+1 (555) 123-4567</p>
-          </div>
+          <a href="https://linkedin.com/in/martinbue" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-700 transition-colors">
+            <Linkedin className="h-8 w-8 mb-3 text-white" />
+            <h3 className="font-medium mb-1">LinkedIn</h3>
+            <p className="text-gray-300">Connect with me</p>
+          </a>
           
-          <div className="bg-gray-50 p-6 rounded-lg flex flex-col items-center text-center">
-            <MapPin className="h-8 w-8 mb-3 text-gray-700" />
-            <h3 className="font-medium mb-1">Location</h3>
-            <p className="text-gray-600">New York, NY</p>
-          </div>
+          <a href="https://instagram.com/martinbue" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-700 transition-colors">
+            <Instagram className="h-8 w-8 mb-3 text-white" />
+            <h3 className="font-medium mb-1">Instagram</h3>
+            <p className="text-gray-300">Follow me</p>
+          </a>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-1">
                 Your Name
               </label>
               <input
@@ -84,11 +86,11 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-1">
                 Your Email
               </label>
               <input
@@ -98,13 +100,13 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="subject" className="block text-sm font-medium text-gray-200 mb-1">
               Subject
             </label>
             <input
@@ -114,12 +116,12 @@ const Contact = () => {
               value={formData.subject}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-1">
               Your Message
             </label>
             <textarea
@@ -129,14 +131,14 @@ const Contact = () => {
               onChange={handleChange}
               required
               rows={6}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
           </div>
 
           <div>
             <button
               type="submit"
-              className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-md hover:bg-gray-200 transition-colors font-medium"
             >
               Send Message
               <Send className="h-4 w-4" />
