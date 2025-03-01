@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -63,7 +62,7 @@
   /* Adjust mobile navigation dropdown placement */
   @media (max-width: 768px) {
     .mobile-nav-dropdown {
-      @apply left-0 right-0 w-full;
+      @apply right-0 w-48;
     }
   }
 }
@@ -73,9 +72,8 @@
   .mobile-menu-content {
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: auto;
     z-index: 50;
   }
 }
-

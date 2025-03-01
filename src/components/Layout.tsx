@@ -19,7 +19,6 @@ const Layout = ({ children }: LayoutProps) => {
           <div className="flex h-16 items-center justify-between">
             <Link to="/" className="flex items-center gap-2 text-xl font-bold text-white hover:text-gray-200 transition-colors">
               <img src="/lovable-uploads/60348b7b-1316-460a-a64a-92fde2ce047d.png" alt="Martin Bue Logo" className="h-8 w-auto" />
-              Martin Bue
             </Link>
             
             {/* Mobile menu button */}
@@ -71,9 +70,9 @@ const Layout = ({ children }: LayoutProps) => {
             </div>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation - Positioned on the right side under the burger menu */}
           {isMenuOpen && (
-            <div className="lg:hidden pb-4">
+            <div className="lg:hidden pb-4 absolute right-0 bg-black/90 w-48 p-4 rounded-bl-lg shadow-lg">
               <div className="flex flex-col space-y-4">
                 <Link
                   to="/work"

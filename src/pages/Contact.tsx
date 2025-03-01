@@ -66,7 +66,7 @@ const Contact = () => {
             <p className="text-gray-300">Connect with me</p>
           </a>
           
-          <a href="https://instagram.com/martinbue" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-700 transition-colors">
+          <a href="https://www.instagram.com/martinbue90/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-700 transition-colors">
             <Instagram className="h-8 w-8 mb-3 text-white" />
             <h3 className="font-medium mb-1">Instagram</h3>
             <p className="text-gray-300">Follow me</p>
