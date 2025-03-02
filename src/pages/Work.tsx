@@ -42,7 +42,7 @@ const Work = () => {
         </div>
         
         <h1 className="text-4xl font-bold mb-4 text-white">Our Work</h1>
-        <p className="text-gray-400 max-w-2xl mb-12">
+        <p className="text-gray-300 max-w-2xl mb-12">
           Explore our portfolio of video projects, from brand campaigns to corporate events.
           Each category represents our commitment to excellence in visual storytelling.
         </p>

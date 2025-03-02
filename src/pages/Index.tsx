@@ -18,8 +18,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
-      {/* Hero Section with Vimeo Video */}
-      <section className="relative h-screen w-full clip-triangle bg-black">
+      {/* Hero Section with Vimeo Video - Adjusted to be more immersive */}
+      <section className="relative h-[95vh] w-full bg-black">
         <div className="absolute inset-0">
           <div style={{ height: "100%" }}>
             <iframe 
@@ -28,7 +28,7 @@ const Index = () => {
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
               style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
               title="Showreel"
-              className="opacity-50"
+              className="opacity-60"
             />
           </div>
         </div>
@@ -37,7 +37,7 @@ const Index = () => {
             <h1 className="animate-fade-in text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Crafting Visual Stories
             </h1>
-            <p className="mx-auto mt-6 max-w-lg animate-fade-in text-lg text-gray-200 opacity-0 [animation-delay:300ms]">
+            <p className="mx-auto mt-6 max-w-lg animate-fade-in text-lg text-white text-opacity-90 opacity-0 [animation-delay:300ms]">
               Professional videographer specializing in creating compelling visual narratives
             </p>
             <Link
@@ -51,11 +51,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Work Section (Replaced Services) */}
-      <section className="bg-gray-50 py-20">
+      {/* Featured Work Section - Improved visibility and made consistent with dark theme */}
+      <section className="bg-black py-20">
         <div className="container px-4">
-          <h2 className="animate-fade-in text-center text-3xl font-bold text-black">Featured Work</h2>
-          <p className="mx-auto mt-4 max-w-2xl animate-fade-in text-center text-gray-600 opacity-0 [animation-delay:200ms]">
+          <h2 className="animate-fade-in text-center text-3xl font-bold text-white">Featured Work</h2>
+          <p className="mx-auto mt-4 max-w-2xl animate-fade-in text-center text-gray-300 opacity-0 [animation-delay:200ms]">
             A selection of my best video projects
           </p>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -109,7 +109,7 @@ const Index = () => {
           <div className="mt-10 text-center">
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-md hover:bg-gray-200 transition-colors"
             >
               See All Work
               <ArrowRight className="h-4 w-4" />
@@ -122,7 +122,7 @@ const Index = () => {
       <section className="py-20">
         <div className="container px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="animate-fade-in text-3xl font-bold">Let's Create Something Amazing</h2>
+            <h2 className="animate-fade-in text-3xl font-bold text-white">Let's Create Something Amazing</h2>
             <p className="mx-auto mt-4 animate-fade-in text-white text-opacity-90 opacity-0 [animation-delay:200ms]">
               Ready to bring your vision to life? Get in touch to discuss your project
             </p>
