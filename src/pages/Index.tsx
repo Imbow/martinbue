@@ -1,21 +1,37 @@
 
 import { Link } from "react-router-dom";
-import { PlayCircle, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useEffect } from "react";
 
 const Index = () => {
+  // Ensure Vimeo script is loaded
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://player.vimeo.com/api/player.js";
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
-      {/* Hero Section */}
+      {/* Hero Section with Vimeo Video */}
       <section className="relative h-screen w-full clip-triangle bg-black">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-50"
-        >
-          <source src="https://cdn.coverr.co/videos/coverr-a-girl-filming-with-her-camera-3633/1080p.mp4" type="video/mp4" />
-        </video>
+        <div className="absolute inset-0">
+          <div style={{ height: "100%" }}>
+            <iframe 
+              src="https://player.vimeo.com/video/439714738?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&background=1&muted=1&autoplay=1&loop=1" 
+              frameBorder="0" 
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+              title="Showreel"
+              className="opacity-50"
+            />
+          </div>
+        </div>
         <div className="relative z-10 flex h-full items-center justify-center px-4">
           <div className="text-center">
             <h1 className="animate-fade-in text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
@@ -48,19 +64,19 @@ const Index = () => {
                 title: "Commercial: Brand Story",
                 description: "A compelling brand narrative for a leading lifestyle company",
                 videoUrl: "https://cdn.coverr.co/videos/coverr-product-photos-on-a-wooden-table-2527/1080p.mp4",
-                path: "/services/commercial-production"
+                path: "/category/brand-campaign"
               },
               {
                 title: "Corporate: Annual Summit",
                 description: "Documenting key moments from an industry-leading conference",
                 videoUrl: "https://cdn.coverr.co/videos/coverr-a-woman-taking-pictures-5765/1080p.mp4",
-                path: "/services/corporate-videos"
+                path: "/category/corporate-event"
               },
               {
                 title: "Event: Music Festival",
                 description: "Capturing the atmosphere and performances of a major cultural event",
                 videoUrl: "https://cdn.coverr.co/videos/coverr-an-aerial-view-of-a-forest-5964/1080p.mp4",
-                path: "/services/event-coverage"
+                path: "/category/aerial-cinematography"
               },
             ].map((work, index) => (
               <Link
@@ -80,7 +96,7 @@ const Index = () => {
                     <source src={work.videoUrl} type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <PlayCircle className="h-16 w-16 text-white" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                   </div>
                 </div>
                 <div className="p-4 bg-white bg-opacity-90">
