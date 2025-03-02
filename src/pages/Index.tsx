@@ -37,12 +37,12 @@ const Index = () => {
             <h1 className="animate-fade-in text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Crafting Visual Stories
             </h1>
-            <p className="mx-auto mt-6 max-w-lg animate-fade-in text-lg text-white text-opacity-90 opacity-0 [animation-delay:300ms]">
-              Professional videographer specializing in creating compelling visual narratives
+            <p className="mx-auto mt-6 max-w-lg animate-fade-in text-xl text-white text-opacity-100 opacity-0 leading-relaxed [animation-delay:300ms]">
+              Professional videographer specializing in<br />creating compelling visual narratives
             </p>
             <Link
               to="/work"
-              className="group mt-8 inline-flex animate-fade-in items-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-sm font-medium text-white opacity-0 transition-all duration-300 hover:bg-orange-600 hover:scale-105 hover:shadow-md [animation-delay:600ms]"
+              className="group mt-8 inline-flex animate-fade-in items-center gap-2 rounded-full bg-orange-600 px-6 py-3 text-sm font-medium text-white opacity-0 transition-all duration-300 hover:bg-orange-700 hover:scale-105 hover:shadow-md [animation-delay:600ms]"
             >
               View Work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -50,9 +50,9 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Scroll indicator animation */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-10 w-10 text-white opacity-80" />
+        {/* Scroll indicator animation - moved higher */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+          <ChevronDown className="h-10 w-10 text-white opacity-90" />
         </div>
       </section>
 
@@ -123,7 +123,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact CTA */}
+      {/* Contact CTA with different orange shade */}
       <section className="py-20">
         <div className="container px-4">
           <div className="mx-auto max-w-3xl text-center">
@@ -133,7 +133,7 @@ const Index = () => {
             </p>
             <Link 
               to="/contact"
-              className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-orange-500 px-8 py-4 text-sm font-medium text-white opacity-0 transition-all duration-300 hover:bg-orange-600 hover:scale-105 hover:shadow-md [animation-delay:400ms]"
+              className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-orange-400 px-8 py-4 text-sm font-medium text-white opacity-0 transition-all duration-300 hover:bg-orange-500 hover:scale-105 hover:shadow-md [animation-delay:400ms]"
             >
               Contact Me
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -1,5 +1,5 @@
 
-import { ArrowLeft, Folder } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Work = () => {
@@ -20,68 +20,72 @@ const Work = () => {
         <h1 className="text-4xl font-bold mb-4 text-white">Work</h1>
         <p className="text-gray-300 max-w-2xl mb-12">
           Explore my portfolio of video projects, from brand campaigns to corporate events.
-          Each category represents my commitment to excellence in visual storytelling.
+          Each project represents my commitment to excellence in visual storytelling.
         </p>
         
-        {/* Category Buttons Grid */}
+        {/* Video Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
               title: "Brand Campaign",
               description: "A compelling brand story through cinematic visuals",
-              thumbnail: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=800",
+              videoUrl: "https://cdn.coverr.co/videos/coverr-product-photos-on-a-wooden-table-2527/1080p.mp4",
               path: "/category/brand-campaign"
             },
             {
               title: "Product Launch",
               description: "Showcasing product features with stunning detail",
-              thumbnail: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=800",
+              videoUrl: "https://cdn.coverr.co/videos/coverr-a-woman-taking-pictures-5765/1080p.mp4",
               path: "/category/product-launch"
             },
             {
               title: "Corporate Event",
               description: "Full coverage of major corporate gatherings",
-              thumbnail: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&q=80&w=800",
+              videoUrl: "https://cdn.coverr.co/videos/coverr-an-aerial-view-of-a-forest-5964/1080p.mp4",
               path: "/category/corporate-event"
             },
             {
               title: "Personal Projects",
               description: "Creative passion projects and artistic explorations",
-              thumbnail: "https://images.unsplash.com/photo-1601506521793-dc748fc80b67?auto=format&fit=crop&q=80&w=800",
+              videoUrl: "https://cdn.coverr.co/videos/coverr-typing-on-a-laptop-5132/1080p.mp4",
               path: "/category/personal-projects"
             },
             {
               title: "Motion & Animation",
               description: "2D/3D animations and motion graphics",
-              thumbnail: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800",
+              videoUrl: "https://cdn.coverr.co/videos/coverr-waves-splashing-on-rocks-9109/1080p.mp4",
               path: "/category/motion-animation"
             },
             {
               title: "Aerial Cinematography",
               description: "Breathtaking perspectives from above",
-              thumbnail: "https://images.unsplash.com/photo-1534397860164-120c97f4db0b?auto=format&fit=crop&q=80&w=800",
+              videoUrl: "https://cdn.coverr.co/videos/coverr-flying-over-a-mountain-range-2646/1080p.mp4",
               path: "/category/aerial-cinematography"
             },
-          ].map((category, index) => (
+          ].map((project, index) => (
             <Link
-              key={category.title}
-              to={category.path}
-              className="group animate-fade-in hover-scale bg-gray-900 rounded-xl overflow-hidden shadow-xl opacity-0"
+              key={project.title}
+              to={project.path}
+              className="group animate-fade-in hover-video-card opacity-0 cursor-pointer overflow-hidden rounded-xl"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="relative h-48 w-full">
-                <img
-                  src={category.thumbnail}
-                  alt={category.title}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                  <Folder className="h-16 w-16 text-white opacity-70 group-hover:opacity-100 transition-opacity" />
+              <div className="relative h-64 w-full">
+                <video
+                  className="h-full w-full object-cover rounded-xl"
+                  loop
+                  muted
+                  autoPlay
+                  playsInline
+                >
+                  <source src={project.videoUrl} type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 </div>
               </div>
-              <div className="p-6 bg-black bg-opacity-80">
-                <h3 className="text-xl font-medium text-white group-hover:text-white transition-colors">{category.title}</h3>
-                <p className="mt-2 text-gray-300">{category.description}</p>
+              <div className="p-4 bg-black bg-opacity-90">
+                <h3 className="text-xl font-medium text-white group-hover:text-white transition-colors">{project.title}</h3>
+                <p className="mt-2 text-gray-300">{project.description}</p>
               </div>
             </Link>
           ))}
