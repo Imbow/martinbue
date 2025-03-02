@@ -10,41 +10,17 @@ const Work = () => {
         <div className="pt-8 flex items-center gap-4 mb-8">
           <Link 
             to="/" 
-            className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
+            className="inline-flex items-center gap-2 text-white bg-orange-500/80 hover:bg-orange-600/80 px-4 py-2 rounded-md transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Link>
         </div>
         
-        {/* Featured Showreel Section */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-white">Featured Showreel</h2>
-          <div className="relative aspect-video w-full max-w-5xl mx-auto overflow-hidden rounded-xl shadow-xl">
-            {/* Replace with your showreel video */}
-            <div className="relative w-full h-full bg-gray-900 rounded-xl overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=1200" 
-                alt="Showreel thumbnail" 
-                className="w-full h-full object-cover opacity-75"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="h-24 w-24 text-white flex items-center justify-center rounded-full bg-black/30 backdrop-blur-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
-                <h3 className="text-2xl font-bold text-white">Martin Bue Showreel 2023</h3>
-                <p className="text-gray-300 mt-2">A collection of my finest work and creative vision</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <h1 className="text-4xl font-bold mb-4 text-white">Our Work</h1>
+        <h1 className="text-4xl font-bold mb-4 text-white">Work</h1>
         <p className="text-gray-300 max-w-2xl mb-12">
-          Explore our portfolio of video projects, from brand campaigns to corporate events.
-          Each category represents our commitment to excellence in visual storytelling.
+          Explore my portfolio of video projects, from brand campaigns to corporate events.
+          Each category represents my commitment to excellence in visual storytelling.
         </p>
         
         {/* Category Buttons Grid */}

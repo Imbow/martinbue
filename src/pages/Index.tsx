@@ -42,7 +42,7 @@ const Index = () => {
             </p>
             <Link
               to="/work"
-              className="group mt-8 inline-flex animate-fade-in items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black opacity-0 transition-all duration-300 hover:bg-gray-100 hover:scale-105 hover:shadow-md [animation-delay:600ms]"
+              className="group mt-8 inline-flex animate-fade-in items-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-sm font-medium text-white opacity-0 transition-all duration-300 hover:bg-orange-600 hover:scale-105 hover:shadow-md [animation-delay:600ms]"
             >
               View Work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -57,7 +57,7 @@ const Index = () => {
       </section>
 
       {/* Featured Work Section - Improved visibility and made consistent with dark theme */}
-      <section className="bg-black py-20">
+      <section className="bg-black py-16">
         <div className="container px-4">
           <h2 className="animate-fade-in text-center text-3xl font-bold text-white">Featured Work</h2>
           <p className="mx-auto mt-4 max-w-2xl animate-fade-in text-center text-gray-300 opacity-0 [animation-delay:200ms]">
@@ -104,9 +104,9 @@ const Index = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                   </div>
                 </div>
-                <div className="p-4 bg-white bg-opacity-90">
-                  <h3 className="text-xl font-medium text-gray-900 group-hover:text-black transition-colors">{work.title}</h3>
-                  <p className="mt-2 text-gray-800">{work.description}</p>
+                <div className="p-4 bg-black bg-opacity-90">
+                  <h3 className="text-xl font-medium text-white group-hover:text-white transition-colors">{work.title}</h3>
+                  <p className="mt-2 text-gray-300">{work.description}</p>
                 </div>
               </Link>
             ))}
@@ -114,7 +114,7 @@ const Index = () => {
           <div className="mt-10 text-center">
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-md hover:bg-gray-200 hover:shadow-md transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600 hover:shadow-md transition-colors"
             >
               See All Work
               <ArrowRight className="h-4 w-4" />
@@ -133,7 +133,7 @@ const Index = () => {
             </p>
             <Link 
               to="/contact"
-              className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-medium text-black opacity-0 transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-md [animation-delay:400ms]"
+              className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-orange-500 px-8 py-4 text-sm font-medium text-white opacity-0 transition-all duration-300 hover:bg-orange-600 hover:scale-105 hover:shadow-md [animation-delay:400ms]"
             >
               Contact Me
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

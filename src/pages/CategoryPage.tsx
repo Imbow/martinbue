@@ -172,7 +172,7 @@ const CategoryPage = () => {
         <div className="pt-8 flex items-center gap-4 mb-8">
           <Link 
             to="/work" 
-            className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
+            className="inline-flex items-center gap-2 text-white bg-orange-500/80 hover:bg-orange-600/80 px-4 py-2 rounded-md transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Work
@@ -181,7 +181,7 @@ const CategoryPage = () => {
         
         <h1 className="text-4xl font-bold mb-4 text-white">{categoryTitle}</h1>
         <p className="text-gray-300 max-w-2xl mb-12">
-          Explore our collection of {categoryTitle.toLowerCase()} videos showcasing our expertise in this field.
+          Explore my collection of {categoryTitle.toLowerCase()} videos showcasing my expertise in this field.
         </p>
         
         {/* Videos Grid */}
@@ -206,8 +206,8 @@ const CategoryPage = () => {
                   <h2 className="text-2xl font-bold text-white mb-3">{video.title}</h2>
                   <p className="text-gray-300 mb-4">{video.description}</p>
                   <p className="text-gray-400">
-                    This is a sample project showcasing our work in {categoryTitle.toLowerCase()}. 
-                    Each video demonstrates our approach to storytelling, technical excellence, and creative vision.
+                    This is a sample project showcasing my work in {categoryTitle.toLowerCase()}. 
+                    Each video demonstrates my approach to storytelling, technical excellence, and creative vision.
                   </p>
                 </div>
               </div>
@@ -217,10 +217,10 @@ const CategoryPage = () => {
         
         <div className="text-center mb-12">
           <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-md hover:bg-gray-200 transition-colors"
+            to="/work"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors"
           >
-            Discuss Your Project
+            See All Work
             <ArrowLeft className="h-4 w-4 rotate-180" />
           </Link>
         </div>
