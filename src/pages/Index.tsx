@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -18,8 +18,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
-      {/* Hero Section with Vimeo Video - Adjusted to be more immersive */}
-      <section className="relative h-[95vh] w-full bg-black">
+      {/* Hero Section with Vimeo Video - Expanded to be more immersive */}
+      <section className="relative h-screen w-full bg-black">
         <div className="absolute inset-0">
           <div style={{ height: "100%" }}>
             <iframe 
@@ -42,12 +42,17 @@ const Index = () => {
             </p>
             <Link
               to="/work"
-              className="group mt-8 inline-flex animate-fade-in items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black opacity-0 transition-all duration-300 hover:bg-gray-100 hover:scale-105 [animation-delay:600ms]"
+              className="group mt-8 inline-flex animate-fade-in items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black opacity-0 transition-all duration-300 hover:bg-gray-100 hover:scale-105 hover:shadow-md [animation-delay:600ms]"
             >
               View Work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
+        </div>
+        
+        {/* Scroll indicator animation */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <ChevronDown className="h-10 w-10 text-white opacity-80" />
         </div>
       </section>
 
@@ -109,7 +114,7 @@ const Index = () => {
           <div className="mt-10 text-center">
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-md hover:bg-gray-200 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-md hover:bg-gray-200 hover:shadow-md transition-colors"
             >
               See All Work
               <ArrowRight className="h-4 w-4" />
@@ -128,7 +133,7 @@ const Index = () => {
             </p>
             <Link 
               to="/contact"
-              className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-medium text-black opacity-0 transition-all duration-300 hover:bg-gray-200 hover:scale-105 [animation-delay:400ms]"
+              className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-medium text-black opacity-0 transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-md [animation-delay:400ms]"
             >
               Contact Me
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
