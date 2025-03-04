@@ -37,8 +37,8 @@ const Index = () => {
             <h1 className="animate-fade-in text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Crafting Visual Stories
             </h1>
-            <p className="mx-auto mt-6 max-w-lg animate-fade-in text-xl text-white text-opacity-100 opacity-0 leading-relaxed [animation-delay:300ms]">
-              Professional videographer specializing in<br />creating compelling visual narratives
+            <p className="mx-auto mt-6 max-w-lg animate-fade-in text-xl text-white text-opacity-100 opacity-0 font-medium leading-relaxed [animation-delay:300ms]">
+              Professional videographer specializing in creating compelling visual narratives
             </p>
             <Link
               to="/work"
@@ -50,8 +50,8 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Scroll indicator animation - moved higher */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+        {/* Scroll indicator animation - moved higher and centered */}
+        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 animate-bounce">
           <ChevronDown className="h-10 w-10 text-white opacity-90" />
         </div>
       </section>
@@ -114,7 +114,7 @@ const Index = () => {
           <div className="mt-10 text-center">
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600 hover:shadow-md transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-md hover:bg-gray-200 hover:shadow-md transition-colors"
             >
               See All Work
               <ArrowRight className="h-4 w-4" />
