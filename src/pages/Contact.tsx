@@ -41,8 +41,8 @@ const Contact = () => {
   return (
     <div className="container mx-auto px-4 py-16 text-white">
       <div className="mb-8">
-        <Link to="/" className="inline-flex items-center text-white hover:text-gray-300 transition-colors">
-          <ArrowLeft className="mr-2 h-4 w-4" />
+        <Link to="/" className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition-colors">
+          <ArrowLeft className="h-4 w-4" />
           Back to Home
         </Link>
       </div>
@@ -54,20 +54,20 @@ const Contact = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <a href="mailto:martinbuep@gmail.com" className="bg-gray-800 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-700 transition-colors">
-            <Mail className="h-8 w-8 mb-3 text-white" />
+          <a href="mailto:martinbuep@gmail.com" className="bg-gray-700 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-600 transition-colors">
+            <Mail className="h-8 w-8 mb-3 text-blue-500" />
             <h3 className="font-medium mb-1">Email</h3>
             <p className="text-gray-300">martinbuep@gmail.com</p>
           </a>
           
-          <a href="https://linkedin.com/in/martinbue" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-700 transition-colors">
-            <Linkedin className="h-8 w-8 mb-3 text-white" />
+          <a href="https://linkedin.com/in/martinbue" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-600 transition-colors">
+            <Linkedin className="h-8 w-8 mb-3 text-blue-700" />
             <h3 className="font-medium mb-1">LinkedIn</h3>
             <p className="text-gray-300">Connect with me</p>
           </a>
           
-          <a href="https://www.instagram.com/martinbue90/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-700 transition-colors">
-            <Instagram className="h-8 w-8 mb-3 text-white" />
+          <a href="https://www.instagram.com/martinbue90/" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-600 transition-colors">
+            <Instagram className="h-8 w-8 mb-3 text-pink-500" />
             <h3 className="font-medium mb-1">Instagram</h3>
             <p className="text-gray-300">Follow me</p>
           </a>
@@ -86,7 +86,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
               />
             </div>
             <div>
@@ -100,7 +100,7 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
               />
             </div>
           </div>
@@ -116,7 +116,7 @@ const Contact = () => {
               value={formData.subject}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
           </div>
 
@@ -131,7 +131,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               rows={6}
-              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
           </div>
 

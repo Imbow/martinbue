@@ -11,13 +11,25 @@ const Layout = ({ children }: LayoutProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Function to scroll to top 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-black text-white">
       {/* Fixed Navigation */}
       <nav className="fixed top-0 z-50 w-full bg-black/80 backdrop-blur-md">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            <Link to="/" className="flex items-center gap-2 text-xl font-bold text-white hover:text-gray-200 transition-colors">
+            <Link 
+              to="/" 
+              className="flex items-center gap-2 text-xl font-bold text-white hover:text-gray-200 transition-colors"
+              onClick={scrollToTop}
+            >
               <img src="/lovable-uploads/60348b7b-1316-460a-a64a-92fde2ce047d.png" alt="Martin Bue Logo" className="h-8 w-auto" />
             </Link>
             

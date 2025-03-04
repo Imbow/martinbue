@@ -1,42 +1,52 @@
 
 import { Link } from "react-router-dom";
-import { PlayCircle, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 
 const Index = () => {
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="relative h-screen w-full clip-triangle bg-black">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-50"
-        >
-          <source src="https://cdn.coverr.co/videos/coverr-a-girl-filming-with-her-camera-3633/1080p.mp4" type="video/mp4" />
-        </video>
+      {/* Hero Section with Video Background */}
+      <section className="relative h-screen w-full bg-black">
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <div style={{padding:'56.25% 0 0 0', position:'relative'}}>
+            <iframe 
+              src="https://player.vimeo.com/video/439714738?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1" 
+              frameBorder="0" 
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+              style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} 
+              title="Showreel"
+            ></iframe>
+          </div>
+          <script src="https://player.vimeo.com/api/player.js"></script>
+          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        </div>
+        
         <div className="relative z-10 flex h-full items-center justify-center px-4">
           <div className="text-center">
             <h1 className="animate-fade-in text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Crafting Visual Stories
             </h1>
-            <p className="mx-auto mt-6 max-w-lg animate-fade-in text-lg text-gray-200 opacity-0 [animation-delay:300ms]">
+            <p className="mx-auto mt-6 max-w-lg animate-fade-in text-lg text-gray-200 opacity-0 font-bold [animation-delay:300ms]">
               Professional videographer specializing in creating compelling visual narratives
             </p>
             <Link
               to="/work"
-              className="group mt-8 inline-flex animate-fade-in items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black opacity-0 transition-all duration-300 hover:bg-gray-100 hover:scale-105 [animation-delay:600ms]"
+              className="group mt-8 inline-flex animate-fade-in items-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-sm font-medium text-white opacity-0 transition-all duration-300 hover:bg-orange-600 hover:scale-105 [animation-delay:600ms]"
             >
               View Work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
+        
+        {/* Arrow indicator - centered and positioned higher */}
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ArrowDown className="h-8 w-8 text-white" />
+        </div>
       </section>
 
-      {/* Featured Work Section (Replaced Services) */}
-      <section className="bg-gray-50 py-20">
+      {/* Featured Work Section with white background */}
+      <section className="bg-white py-20">
         <div className="container px-4">
           <h2 className="animate-fade-in text-center text-3xl font-bold text-black">Featured Work</h2>
           <p className="mx-auto mt-4 max-w-2xl animate-fade-in text-center text-gray-600 opacity-0 [animation-delay:200ms]">
@@ -80,7 +90,7 @@ const Index = () => {
                     <source src={work.videoUrl} type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <PlayCircle className="h-16 w-16 text-white" />
+                    <ArrowRight className="h-16 w-16 text-white" />
                   </div>
                 </div>
                 <div className="p-4 bg-white bg-opacity-90">
@@ -93,7 +103,7 @@ const Index = () => {
           <div className="mt-10 text-center">
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black border border-black rounded-md hover:bg-gray-100 transition-colors"
             >
               See All Work
               <ArrowRight className="h-4 w-4" />
@@ -112,7 +122,7 @@ const Index = () => {
             </p>
             <Link 
               to="/contact"
-              className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-medium text-black opacity-0 transition-all duration-300 hover:bg-gray-200 hover:scale-105 [animation-delay:400ms]"
+              className="group mt-8 animate-fade-in inline-flex items-center gap-2 rounded-full bg-orange-500 px-8 py-4 text-sm font-medium text-white opacity-0 transition-all duration-300 hover:bg-orange-600 hover:scale-105 [animation-delay:400ms]"
             >
               Contact Me
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
