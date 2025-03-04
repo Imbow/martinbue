@@ -54,22 +54,22 @@ const Contact = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <a href="mailto:martinbuep@gmail.com" className="bg-gray-700 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-600 transition-colors">
+          <a href="mailto:martinbuep@gmail.com" className="bg-gray-200 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-100 transition-colors">
             <Mail className="h-8 w-8 mb-3 text-blue-500" />
-            <h3 className="font-medium mb-1">Email</h3>
-            <p className="text-gray-300">martinbuep@gmail.com</p>
+            <h3 className="font-medium mb-1 text-gray-800">Email</h3>
+            <p className="text-gray-600">martinbuep@gmail.com</p>
           </a>
           
-          <a href="https://linkedin.com/in/martinbue" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-600 transition-colors">
+          <a href="https://linkedin.com/in/martinbue" target="_blank" rel="noopener noreferrer" className="bg-gray-200 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-100 transition-colors">
             <Linkedin className="h-8 w-8 mb-3 text-blue-700" />
-            <h3 className="font-medium mb-1">LinkedIn</h3>
-            <p className="text-gray-300">Connect with me</p>
+            <h3 className="font-medium mb-1 text-gray-800">LinkedIn</h3>
+            <p className="text-gray-600">Connect with me</p>
           </a>
           
-          <a href="https://www.instagram.com/martinbue90/" target="_blank" rel="noopener noreferrer" className="bg-gray-700 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-600 transition-colors">
+          <a href="https://www.instagram.com/martinbue90/" target="_blank" rel="noopener noreferrer" className="bg-gray-200 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-100 transition-colors">
             <Instagram className="h-8 w-8 mb-3 text-pink-500" />
-            <h3 className="font-medium mb-1">Instagram</h3>
-            <p className="text-gray-300">Follow me</p>
+            <h3 className="font-medium mb-1 text-gray-800">Instagram</h3>
+            <p className="text-gray-600">Follow me</p>
           </a>
         </div>
 
@@ -86,7 +86,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="w-full px-4 py-2 border border-gray-400 rounded-md bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300"
               />
             </div>
             <div>
@@ -100,7 +100,7 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="w-full px-4 py-2 border border-gray-400 rounded-md bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300"
               />
             </div>
           </div>
@@ -116,7 +116,7 @@ const Contact = () => {
               value={formData.subject}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="w-full px-4 py-2 border border-gray-400 rounded-md bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300"
             />
           </div>
 
@@ -131,14 +131,14 @@ const Contact = () => {
               onChange={handleChange}
               required
               rows={6}
-              className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="w-full px-4 py-2 border border-gray-400 rounded-md bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300"
             />
           </div>
 
           <div>
             <button
               type="submit"
-              className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-md hover:bg-gray-200 transition-colors font-medium"
+              className="inline-flex items-center gap-2 bg-gray-200 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-100 transition-colors font-medium"
             >
               Send Message
               <Send className="h-4 w-4" />

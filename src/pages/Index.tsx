@@ -1,8 +1,19 @@
 
 import { Link } from "react-router-dom";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight, Play } from "lucide-react";
+import { useState } from "react";
 
 const Index = () => {
+  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
+
+  const toggleVideo = (videoId: string) => {
+    if (playingVideo === videoId) {
+      setPlayingVideo(null);
+    } else {
+      setPlayingVideo(videoId);
+    }
+  };
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
       {/* Hero Section with Video Background */}
@@ -45,59 +56,69 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Work Section with white background */}
-      <section className="bg-white py-20">
+      {/* Featured Work Section with black background */}
+      <section className="bg-black py-20">
         <div className="container px-4">
-          <h2 className="animate-fade-in text-center text-3xl font-bold text-black">Featured Work</h2>
-          <p className="mx-auto mt-4 max-w-2xl animate-fade-in text-center text-gray-600 opacity-0 [animation-delay:200ms]">
+          <h2 className="animate-fade-in text-center text-3xl font-bold text-white">Featured Work</h2>
+          <p className="mx-auto mt-4 max-w-2xl animate-fade-in text-center text-gray-300 opacity-0 [animation-delay:200ms]">
             A selection of my best video projects
           </p>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
+                id: "video1",
                 title: "Commercial: Brand Story",
                 description: "A compelling brand narrative for a leading lifestyle company",
-                videoUrl: "https://cdn.coverr.co/videos/coverr-product-photos-on-a-wooden-table-2527/1080p.mp4",
-                path: "/services/commercial-production"
+                vimeoId: "439714738",
               },
               {
+                id: "video2",
                 title: "Corporate: Annual Summit",
                 description: "Documenting key moments from an industry-leading conference",
-                videoUrl: "https://cdn.coverr.co/videos/coverr-a-woman-taking-pictures-5765/1080p.mp4",
-                path: "/services/corporate-videos"
+                vimeoId: "439714738", // Using the same demo video ID, replace with actual IDs
               },
               {
+                id: "video3",
                 title: "Event: Music Festival",
                 description: "Capturing the atmosphere and performances of a major cultural event",
-                videoUrl: "https://cdn.coverr.co/videos/coverr-an-aerial-view-of-a-forest-5964/1080p.mp4",
-                path: "/services/event-coverage"
+                vimeoId: "439714738", // Using the same demo video ID, replace with actual IDs
               },
             ].map((work, index) => (
-              <Link
-                key={work.title}
-                to={work.path}
+              <div
+                key={work.id}
                 className="group animate-fade-in hover-video-card opacity-0 cursor-pointer overflow-hidden rounded-xl"
                 style={{ animationDelay: `${(index + 1) * 200}ms` }}
+                onClick={() => toggleVideo(work.id)}
               >
                 <div className="relative h-64 w-full">
-                  <video
-                    className="h-full w-full object-cover rounded-xl"
-                    loop
-                    muted
-                    autoPlay
-                    playsInline
-                  >
-                    <source src={work.videoUrl} type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ArrowRight className="h-16 w-16 text-white" />
-                  </div>
+                  {playingVideo === work.id ? (
+                    <div className="h-full w-full">
+                      <iframe
+                        src={`https://player.vimeo.com/video/${work.vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+                        className="h-full w-full"
+                        frameBorder="0"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  ) : (
+                    <div className="relative h-full w-full">
+                      <img
+                        src={`https://vumbnail.com/${work.vimeoId}.jpg`}
+                        className="h-full w-full object-cover rounded-xl"
+                        alt={work.title}
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 transition-opacity group-hover:opacity-70">
+                        <Play className="h-16 w-16 text-white opacity-80 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div className="p-4 bg-white bg-opacity-90">
-                  <h3 className="text-xl font-medium text-gray-900 group-hover:text-black transition-colors">{work.title}</h3>
-                  <p className="mt-2 text-gray-800">{work.description}</p>
+                <div className="p-4 bg-gray-900 bg-opacity-90">
+                  <h3 className="text-xl font-medium text-white group-hover:text-white transition-colors">{work.title}</h3>
+                  <p className="mt-2 text-gray-300">{work.description}</p>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
           <div className="mt-10 text-center">
