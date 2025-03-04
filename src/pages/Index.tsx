@@ -114,7 +114,7 @@ const Index = () => {
                     </div>
                   )}
                 </div>
-                <div className="p-4 bg-gray-900 bg-opacity-90">
+                <div className="p-4 bg-gray-700 bg-opacity-90">
                   <h3 className="text-xl font-medium text-white group-hover:text-white transition-colors">{work.title}</h3>
                   <p className="mt-2 text-gray-300">{work.description}</p>
                 </div>
