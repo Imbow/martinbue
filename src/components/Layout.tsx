@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram } from "lucide-react";
 
 interface LayoutProps {
@@ -10,17 +10,6 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-
-  const handleLogoClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    // Navigate to the homepage and scroll to top
-    navigate('/');
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-black text-white">
@@ -28,13 +17,9 @@ const Layout = ({ children }: LayoutProps) => {
       <nav className="fixed top-0 z-50 w-full bg-black/80 backdrop-blur-md">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            <a 
-              href="/" 
-              onClick={handleLogoClick} 
-              className="flex items-center gap-2 text-xl font-bold text-white hover:text-gray-200 transition-colors"
-            >
+            <Link to="/" className="flex items-center gap-2 text-xl font-bold text-white hover:text-gray-200 transition-colors">
               <img src="/lovable-uploads/60348b7b-1316-460a-a64a-92fde2ce047d.png" alt="Martin Bue Logo" className="h-8 w-auto" />
-            </a>
+            </Link>
             
             {/* Mobile menu button */}
             <button
