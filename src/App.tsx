@@ -13,7 +13,6 @@ import NotFound from "./pages/NotFound";
 import CommercialProduction from "./pages/services/CommercialProduction";
 import CorporateVideos from "./pages/services/CorporateVideos";
 import EventCoverage from "./pages/services/EventCoverage";
-import CategoryPage from "./pages/CategoryPage";
 
 const queryClient = new QueryClient();
 
@@ -28,7 +27,6 @@ const App = () => (
           <Route path="/work" element={<Layout><Work /></Layout>} />
           <Route path="/about" element={<Layout><About /></Layout>} />
           <Route path="/contact" element={<Layout><Contact /></Layout>} />
-          <Route path="/category/:categoryId" element={<Layout><CategoryPage /></Layout>} />
           <Route path="/services/commercial-production" element={<Layout><CommercialProduction /></Layout>} />
           <Route path="/services/corporate-videos" element={<Layout><CorporateVideos /></Layout>} />
           <Route path="/services/event-coverage" element={<Layout><EventCoverage /></Layout>} />
