@@ -54,22 +54,22 @@ const Contact = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <a href="mailto:martinbuep@gmail.com" className="bg-gray-300 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-200 transition-colors">
+          <a href="mailto:martinbuep@gmail.com" className="bg-gray-600 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-500 transition-colors">
             <Mail className="h-8 w-8 mb-3 text-blue-500" />
-            <h3 className="font-medium mb-1 text-gray-800">Email</h3>
-            <p className="text-gray-600">martinbuep@gmail.com</p>
+            <h3 className="font-medium mb-1 text-white">Email</h3>
+            <p className="text-gray-300">martinbuep@gmail.com</p>
           </a>
           
-          <a href="https://linkedin.com/in/martinbue" target="_blank" rel="noopener noreferrer" className="bg-gray-300 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-200 transition-colors">
+          <a href="https://linkedin.com/in/martinbue" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-500 transition-colors">
             <Linkedin className="h-8 w-8 mb-3 text-blue-700" />
-            <h3 className="font-medium mb-1 text-gray-800">LinkedIn</h3>
-            <p className="text-gray-600">Connect with me</p>
+            <h3 className="font-medium mb-1 text-white">LinkedIn</h3>
+            <p className="text-gray-300">Connect with me</p>
           </a>
           
-          <a href="https://www.instagram.com/martinbue90/" target="_blank" rel="noopener noreferrer" className="bg-gray-300 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-200 transition-colors">
+          <a href="https://www.instagram.com/martinbue90/" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-6 rounded-lg flex flex-col items-center text-center hover:bg-gray-500 transition-colors">
             <Instagram className="h-8 w-8 mb-3 text-pink-500" />
-            <h3 className="font-medium mb-1 text-gray-800">Instagram</h3>
-            <p className="text-gray-600">Follow me</p>
+            <h3 className="font-medium mb-1 text-white">Instagram</h3>
+            <p className="text-gray-300">Follow me</p>
           </a>
         </div>
 
