@@ -50,8 +50,8 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Arrow indicator - centered and positioned higher */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+        {/* Arrow indicator - perfectly centered */}
+        <div className="absolute bottom-12 left-0 right-0 mx-auto w-8 flex justify-center animate-bounce">
           <ArrowDown className="h-8 w-8 text-white" />
         </div>
       </section>

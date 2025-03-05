@@ -86,7 +86,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-500 rounded-md bg-gray-200 text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="w-full px-4 py-2 border border-gray-500 rounded-md bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
               />
             </div>
             <div>
@@ -100,7 +100,7 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-500 rounded-md bg-gray-200 text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="w-full px-4 py-2 border border-gray-500 rounded-md bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
               />
             </div>
           </div>
@@ -116,7 +116,7 @@ const Contact = () => {
               value={formData.subject}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-500 rounded-md bg-gray-200 text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="w-full px-4 py-2 border border-gray-500 rounded-md bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
           </div>
 
@@ -131,7 +131,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               rows={6}
-              className="w-full px-4 py-2 border border-gray-500 rounded-md bg-gray-200 text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="w-full px-4 py-2 border border-gray-500 rounded-md bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
           </div>
 
