@@ -53,21 +53,21 @@ const Contact = () => {
           Have a project in mind or want to discuss a collaboration? I'd love to hear from you.
         </p>
 
-        <div className="grid grid-cols-3 gap-4 sm:gap-6 mb-12">
-          <a href="mailto:martinbuep@gmail.com" className="bg-gray-600 p-4 rounded-lg flex flex-col items-center text-center hover:bg-gray-500 transition-colors">
-            <Mail className="h-6 w-6 mb-2 text-blue-500" />
+        <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-10">
+          <a href="mailto:martinbuep@gmail.com" className="bg-gray-600 p-2 sm:p-3 rounded-lg flex flex-col items-center text-center hover:bg-gray-500 transition-colors">
+            <Mail className="h-6 w-6 mb-1 text-blue-500" />
             <h3 className="font-medium text-sm sm:text-base text-white">Email</h3>
             <p className="text-gray-300 text-xs sm:text-sm">martinbuep@gmail.com</p>
           </a>
           
-          <a href="https://linkedin.com/in/martinbue" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-4 rounded-lg flex flex-col items-center text-center hover:bg-gray-500 transition-colors">
-            <Linkedin className="h-6 w-6 mb-2 text-blue-700" />
+          <a href="https://linkedin.com/in/martinbue" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-2 sm:p-3 rounded-lg flex flex-col items-center text-center hover:bg-gray-500 transition-colors">
+            <Linkedin className="h-6 w-6 mb-1 text-blue-700" />
             <h3 className="font-medium text-sm sm:text-base text-white">LinkedIn</h3>
             <p className="text-gray-300 text-xs sm:text-sm">Connect with me</p>
           </a>
           
-          <a href="https://www.instagram.com/martinbue90/" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-4 rounded-lg flex flex-col items-center text-center hover:bg-gray-500 transition-colors">
-            <Instagram className="h-6 w-6 mb-2 text-pink-500" />
+          <a href="https://www.instagram.com/martinbue90/" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-2 sm:p-3 rounded-lg flex flex-col items-center text-center hover:bg-gray-500 transition-colors">
+            <Instagram className="h-6 w-6 mb-1 text-pink-500" />
             <h3 className="font-medium text-sm sm:text-base text-white">Instagram</h3>
             <p className="text-gray-300 text-xs sm:text-sm">Follow me</p>
           </a>
