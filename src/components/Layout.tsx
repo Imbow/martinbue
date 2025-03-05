@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram } from "lucide-react";
 
@@ -18,6 +18,11 @@ const Layout = ({ children }: LayoutProps) => {
       behavior: "smooth"
     });
   };
+  
+  // Effect to scroll to top when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-black text-white">
