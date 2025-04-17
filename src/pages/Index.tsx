@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { ArrowDown, ArrowRight, Play } from "lucide-react";
 import { useState } from "react";
@@ -67,21 +66,21 @@ const Index = () => {
             {[
               {
                 id: "video1",
-                title: "Commercial: Brand Story",
-                description: "A compelling brand narrative for a leading lifestyle company",
-                vimeoId: "439714738",
+                title: "Commercial: Neurons Brand Story",
+                description: "A story of Neurons and what their values are",
+                vimeoId: "1015645772",
               },
               {
                 id: "video2",
-                title: "Corporate: Annual Summit",
-                description: "Documenting key moments from an industry-leading conference",
-                vimeoId: "439714738", // Using the same demo video ID, replace with actual IDs
+                title: "Corporate: Imerco City",
+                description: "A event video of Imerco's annual summit",
+                vimeoId: "1076391791",
               },
               {
                 id: "video3",
-                title: "Event: Music Festival",
-                description: "Capturing the atmosphere and performances of a major cultural event",
-                vimeoId: "439714738", // Using the same demo video ID, replace with actual IDs
+                title: "Commercial: Neurons AI",
+                description: "A product explainer of Neurons' AI tool",
+                vimeoId: "1011312650",
               },
             ].map((work, index) => (
               <div
@@ -97,7 +96,7 @@ const Index = () => {
                         src={`https://player.vimeo.com/video/${work.vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
                         className="h-full w-full"
                         frameBorder="0"
-                        allow="autoplay; fullscreen; picture-in-picture"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                         allowFullScreen
                       ></iframe>
                     </div>
