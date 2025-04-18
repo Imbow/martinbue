@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { ArrowDown, ArrowRight, Play } from "lucide-react";
 import { useState } from "react";
@@ -18,12 +19,12 @@ const Index = () => {
       {/* Hero Section with Video Background */}
       <section className="relative h-screen w-full bg-black">
         <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <div style={{padding:'56.25% 0 0 0', position:'relative'}}>
+          <div style={{padding:'56.25% 0 0 0', position:'relative'}} className="md:h-full">
             <iframe 
               src="https://player.vimeo.com/video/439714738?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1" 
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-              style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} 
+              style={{position:'absolute',top:0,left:0,width:'100%',height:'100%',objectFit:'cover'}} 
               title="Showreel"
             ></iframe>
           </div>
