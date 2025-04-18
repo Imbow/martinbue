@@ -1,9 +1,10 @@
-
 import { Link } from "react-router-dom";
 import { ArrowDown, ArrowRight, Play } from "lucide-react";
 import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
+  const isMobile = useIsMobile();
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
   const toggleVideo = (videoId: string) => {
@@ -21,7 +22,10 @@ const Index = () => {
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <div className="relative h-full w-full">
             <iframe 
-              src="https://player.vimeo.com/video/439714738?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1" 
+              src={isMobile 
+                ? "https://player.vimeo.com/video/1076790557?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1"
+                : "https://player.vimeo.com/video/439714738?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1"
+              }
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
               style={{position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', transform: 'scale(1.2)'}} 
