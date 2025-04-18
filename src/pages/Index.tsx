@@ -23,7 +23,7 @@ const Index = () => {
           <div className="relative h-full w-full">
             <iframe 
               src={isMobile 
-                ? "https://player.vimeo.com/video/1076790557?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1"
+                ? "https://www.youtube.com/embed/RjdA52P69iM?autoplay=1&mute=1&loop=1&playlist=RjdA52P69iM&controls=0"
                 : "https://player.vimeo.com/video/439714738?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1"
               }
               frameBorder="0" 
