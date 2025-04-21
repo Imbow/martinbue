@@ -24,7 +24,7 @@ const Index = () => {
             <iframe 
               src={isMobile 
                 ? "https://www.youtube.com/embed/RjdA52P69iM?autoplay=1&mute=1&loop=1&playlist=RjdA52P69iM&controls=0"
-                : "https://player.vimeo.com/video/1077359095?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1"
+                : "https://player.vimeo.com/video/1077359095?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&background=1&autoplay=1&loop=1&muted=1"
               }
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
@@ -60,7 +60,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Work Section with black background */}
+      {/* Featured Work Section */}
       <section className="bg-black py-20">
         <div className="container px-4">
           <h2 className="animate-fade-in text-center text-3xl font-bold text-white">Featured Work</h2>
@@ -78,7 +78,7 @@ const Index = () => {
               {
                 id: "video2",
                 title: "Corporate: Imerco City",
-                description: "A event video of Imerco's annual summit",
+                description: "A video recap of Imerco's annual summit, bringing together sotre managers, partners and wholesalers.",
                 vimeoId: "1076391791",
               },
               {

@@ -70,13 +70,25 @@ const Work = () => {
               className="group hover-video-card animate-fade-in opacity-0"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <img
-                src={work.thumbnail}
-                alt={work.title}
-                className="aspect-video w-full object-cover"
-              />
+              {work.videoId ? (
+                <div className="aspect-video w-full">
+                  <iframe
+                    src={`https://player.vimeo.com/video/${work.videoId}?title=0&byline=0&portrait=0`}
+                    className="w-full h-full rounded-xl"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              ) : (
+                <img
+                  src={work.thumbnail}
+                  alt={work.title}
+                  className="aspect-video w-full object-cover"
+                />
+              )}
               <div className="absolute inset-0 z-10 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
-                <PlayCircle className="h-16 w-16 text-white" />
+                {!work.videoId && <PlayCircle className="h-16 w-16 text-white" />}
               </div>
               <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/90 to-transparent p-6">
                 <span className="text-sm text-gray-300">{work.category}</span>
