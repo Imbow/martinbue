@@ -78,7 +78,7 @@ const Index = () => {
               {
                 id: "video2",
                 title: "Corporate: Imerco City",
-                description: "A video recap of Imerco's annual summit, bringing together sotre managers, partners and wholesalers.",
+                description: "A recap of Imerco's annual summit, bringing together store managers & partners.",
                 vimeoId: "1076391791",
               },
               {
