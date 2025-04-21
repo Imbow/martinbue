@@ -1,4 +1,3 @@
-
 import { ArrowLeft, PlayCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -19,15 +18,14 @@ const Work = () => {
         
         <h1 className="text-4xl font-bold mb-4 text-white">Work</h1>
         <p className="text-gray-300 max-w-2xl mb-12">
-          Explore my portfolio of video projects, from brand campaigns to corporate events.
-          Each project represents my commitment to excellence in visual storytelling.
+          Explore my portfolio of video projects, from brand campaigns to corporate events and personal work. Each crafted with a dedication to visual storytelling and creative excellence.
         </p>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
               title: "Brand Campaign",
               category: "Marketing",
-              thumbnail: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=800",
+              videoId: "1076397038",
               description: "A compelling brand story through cinematic visuals",
             },
             {
@@ -59,6 +57,12 @@ const Work = () => {
               category: "Specialty",
               thumbnail: "https://images.unsplash.com/photo-1534397860164-120c97f4db0b?auto=format&fit=crop&q=80&w=800",
               description: "Breathtaking perspectives from above",
+            },
+            {
+              title: "Restaurant Promo",
+              category: "Commercial",
+              videoId: "338242418",
+              description: "A cinematic look into the craft of a little French fine dining restaurant in Copenhagen",
             },
           ].map((work, index) => (
             <div

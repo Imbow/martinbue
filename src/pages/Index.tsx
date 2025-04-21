@@ -24,7 +24,7 @@ const Index = () => {
             <iframe 
               src={isMobile 
                 ? "https://www.youtube.com/embed/RjdA52P69iM?autoplay=1&mute=1&loop=1&playlist=RjdA52P69iM&controls=0"
-                : "https://player.vimeo.com/video/439714738?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1"
+                : "https://player.vimeo.com/video/1077359095?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1"
               }
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
@@ -65,15 +65,15 @@ const Index = () => {
         <div className="container px-4">
           <h2 className="animate-fade-in text-center text-3xl font-bold text-white">Featured Work</h2>
           <p className="mx-auto mt-4 max-w-2xl animate-fade-in text-center text-gray-300 opacity-0 [animation-delay:200ms]">
-            A selection of my best video projects
+            A selection of recent video projects
           </p>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 id: "video1",
                 title: "Commercial: Neurons Brand Story",
-                description: "A story of Neurons and what their values are",
-                vimeoId: "1015645772",
+                description: "A brand story capturing Neurons and the values behind their work.",
+                vimeoId: "1076397038",
               },
               {
                 id: "video2",
