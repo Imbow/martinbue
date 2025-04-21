@@ -84,7 +84,7 @@ const Index = () => {
               {
                 id: "video3",
                 title: "Commercial: Neurons AI",
-                description: "A product explainer of Neurons' AI tool",
+                description: "An explainer of Neurons' AI tool and how it helps you save time and reduce costs.",
                 vimeoId: "1011312650",
               },
             ].map((work, index) => (

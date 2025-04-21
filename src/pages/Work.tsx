@@ -1,10 +1,21 @@
-import { ArrowLeft, PlayCircle } from "lucide-react";
+
+import { ArrowLeft, Play } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Work = () => {
+  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
+
+  const toggleVideo = (id: string) => {
+    if (playingVideo === id) {
+      setPlayingVideo(null);
+    } else {
+      setPlayingVideo(id);
+    }
+  };
+
   return (
     <div className="min-h-screen w-full">
-      {/* Work Grid */}
       <div className="container px-4 py-8">
         <div className="pt-8 flex items-center gap-4 mb-8">
           <Link 
@@ -23,6 +34,7 @@ const Work = () => {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
+              id: "brand-campaign",
               title: "Brand Campaign",
               category: "Marketing",
               videoId: "1076397038",
@@ -48,7 +60,7 @@ const Work = () => {
             },
             {
               title: "Music Video",
-              category: "Creative",
+              category: "Commercial",
               thumbnail: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800",
               description: "Artistic expression through visual rhythms",
             },
@@ -59,6 +71,7 @@ const Work = () => {
               description: "Breathtaking perspectives from above",
             },
             {
+              id: "restaurant-promo",
               title: "Restaurant Promo",
               category: "Commercial",
               videoId: "338242418",
@@ -67,34 +80,47 @@ const Work = () => {
           ].map((work, index) => (
             <div
               key={work.title}
-              className="group hover-video-card animate-fade-in opacity-0"
+              className="group hover-video-card animate-fade-in opacity-0 relative"
               style={{ animationDelay: `${index * 100}ms` }}
+              onClick={() => work.videoId && toggleVideo(work.videoId)}
             >
               {work.videoId ? (
-                <div className="aspect-video w-full">
-                  <iframe
-                    src={`https://player.vimeo.com/video/${work.videoId}?title=0&byline=0&portrait=0`}
-                    className="w-full h-full rounded-xl"
-                    frameBorder="0"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                <div className="aspect-video w-full relative">
+                  {playingVideo === work.videoId ? (
+                    <iframe
+                      src={`https://player.vimeo.com/video/${work.videoId}?autoplay=1&title=1&byline=0&portrait=0`}
+                      className="w-full h-full rounded-xl"
+                      frameBorder="0"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : (
+                    <>
+                      <img
+                        src={`https://vumbnail.com/${work.videoId}.jpg`}
+                        alt={work.title}
+                        className="w-full h-full object-cover rounded-xl"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity group-hover:opacity-70">
+                        <Play className="h-16 w-16 text-white opacity-80 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </>
+                  )}
                 </div>
               ) : (
                 <img
                   src={work.thumbnail}
                   alt={work.title}
-                  className="aspect-video w-full object-cover"
+                  className="aspect-video w-full object-cover rounded-xl"
                 />
               )}
-              <div className="absolute inset-0 z-10 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
-                {!work.videoId && <PlayCircle className="h-16 w-16 text-white" />}
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <span className="text-sm text-gray-300">{work.category}</span>
-                <h3 className="text-xl font-medium text-white transition-colors">{work.title}</h3>
-                <p className="mt-2 text-sm text-white">{work.description}</p>
-              </div>
+              {!playingVideo && (
+                <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/90 to-transparent p-6">
+                  <span className="text-sm text-gray-300">{work.category}</span>
+                  <h3 className="text-xl font-medium text-white transition-colors">{work.title}</h3>
+                  <p className="mt-2 text-sm text-white">{work.description}</p>
+                </div>
+              )}
             </div>
           ))}
         </div>
