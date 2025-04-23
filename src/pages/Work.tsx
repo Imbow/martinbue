@@ -1,4 +1,3 @@
-
 import { ArrowLeft, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -88,7 +87,7 @@ const Work = () => {
                 <div className="aspect-video w-full relative">
                   {playingVideo === work.videoId ? (
                     <iframe
-                      src={`https://player.vimeo.com/video/${work.videoId}?autoplay=1&title=1&byline=0&portrait=0&controls=1`}
+                      src={`https://player.vimeo.com/video/${work.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1`}
                       className="w-full h-full rounded-xl"
                       frameBorder="0"
                       allow="autoplay; fullscreen; picture-in-picture"

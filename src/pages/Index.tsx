@@ -98,7 +98,7 @@ const Index = () => {
                   {playingVideo === work.id ? (
                     <div className="h-full w-full">
                       <iframe
-                        src={`https://player.vimeo.com/video/${work.vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+                        src={`https://player.vimeo.com/video/${work.vimeoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1`}
                         className="h-full w-full"
                         frameBorder="0"
                         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
