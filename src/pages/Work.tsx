@@ -85,7 +85,7 @@ const Work = () => {
                 <div className="aspect-video w-full relative">
                   {playingVideo === work.videoId ? (
                     <iframe
-                      src={`https://player.vimeo.com/video/${work.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1`}
+                      src={`https://player.vimeo.com/video/${work.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1&autopause=0&transparent=0`}
                       className="w-full h-full rounded-xl"
                       frameBorder="0"
                       allow="autoplay; fullscreen; picture-in-picture"
