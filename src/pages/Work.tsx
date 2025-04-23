@@ -1,4 +1,5 @@
-import { ArrowLeft, Play } from "lucide-react";
+
+import { ArrowLeft, Play, Pause } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -14,6 +15,52 @@ const Work = () => {
       setIsPlaying(!isPlaying);
     }
   };
+
+  // Array of work items with real videos and placeholders
+  const workItems = [
+    {
+      id: "video1",
+      title: "Video 1",
+      videoId: "1076397038",
+      description: "Commercial brand video with cinematic visuals",
+    },
+    {
+      id: "video2",
+      title: "Video 2",
+      videoId: "338242418",
+      description: "Restaurant promotional video showcasing fine dining experience",
+    },
+    {
+      id: "placeholder1",
+      title: "Video 3",
+      thumbnail: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=800",
+      description: "Placeholder for upcoming video project",
+    },
+    {
+      id: "placeholder2",
+      title: "Video 4",
+      thumbnail: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=800",
+      description: "Placeholder for upcoming video project",
+    },
+    {
+      id: "placeholder3",
+      title: "Video 5",
+      thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
+      description: "Placeholder for upcoming video project",
+    },
+    {
+      id: "placeholder4",
+      title: "Video 6",
+      thumbnail: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
+      description: "Placeholder for upcoming video project",
+    },
+    {
+      id: "placeholder5",
+      title: "Video 7",
+      thumbnail: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800",
+      description: "Placeholder for upcoming video project",
+    },
+  ];
 
   return (
     <div className="min-h-screen w-full">
@@ -32,64 +79,20 @@ const Work = () => {
         <p className="text-gray-300 max-w-2xl mb-12">
           Explore my portfolio of video projects, from brand campaigns to corporate events and personal work. Each crafted with a dedication to visual storytelling and creative excellence.
         </p>
+        
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              id: "brand-campaign",
-              title: "Brand Campaign",
-              category: "Marketing",
-              videoId: "1076397038",
-              description: "A compelling brand story through cinematic visuals",
-            },
-            {
-              title: "Product Launch",
-              category: "Commercial",
-              thumbnail: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=800",
-              description: "Showcasing product features with stunning detail",
-            },
-            {
-              title: "Corporate Event",
-              category: "Events",
-              thumbnail: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&q=80&w=800",
-              description: "Full coverage of major corporate gatherings",
-            },
-            {
-              title: "Documentary",
-              category: "Storytelling",
-              thumbnail: "https://images.unsplash.com/photo-1601506521793-dc748fc80b67?auto=format&fit=crop&q=80&w=800",
-              description: "In-depth storytelling through powerful narratives",
-            },
-            {
-              title: "Music Video",
-              category: "Commercial",
-              thumbnail: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800",
-              description: "Artistic expression through visual rhythms",
-            },
-            {
-              title: "Aerial Cinematography",
-              category: "Specialty",
-              thumbnail: "https://images.unsplash.com/photo-1534397860164-120c97f4db0b?auto=format&fit=crop&q=80&w=800",
-              description: "Breathtaking perspectives from above",
-            },
-            {
-              id: "restaurant-promo",
-              title: "Restaurant Promo",
-              category: "Commercial",
-              videoId: "338242418",
-              description: "A cinematic look into the craft of a little French fine dining restaurant in Copenhagen",
-            },
-          ].map((work, index) => (
+          {workItems.map((work, index) => (
             <div
-              key={work.title}
-              className="group hover-video-card animate-fade-in opacity-0 relative"
+              key={work.id}
+              className="group hover-video-card animate-fade-in opacity-0 relative rounded-xl overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
-              onClick={() => work.videoId && toggleVideo(work.videoId)}
+              onClick={() => work.videoId && toggleVideo(work.id)}
             >
               {work.videoId ? (
                 <div className="aspect-video w-full relative">
-                  {playingVideo === work.videoId ? (
+                  {playingVideo === work.id ? (
                     <iframe
-                      src={`https://player.vimeo.com/video/${work.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1&autopause=0&transparent=0&player_id=${work.videoId}`}
+                      src={`https://player.vimeo.com/video/${work.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1&autopause=0&transparent=0&player_id=${work.id}`}
                       className="w-full h-full rounded-xl"
                       frameBorder="0"
                       allow="autoplay; fullscreen; picture-in-picture"
@@ -109,19 +112,21 @@ const Work = () => {
                   )}
                 </div>
               ) : (
-                <img
-                  src={work.thumbnail}
-                  alt={work.title}
-                  className="aspect-video w-full object-cover rounded-xl"
-                />
-              )}
-              {!playingVideo && (
-                <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/90 to-transparent p-6">
-                  <span className="text-sm text-gray-300">{work.category}</span>
-                  <h3 className="text-xl font-medium text-white transition-colors">{work.title}</h3>
-                  <p className="mt-2 text-sm text-white">{work.description}</p>
+                <div className="aspect-video w-full relative">
+                  <img
+                    src={work.thumbnail}
+                    alt={work.title}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 transition-opacity">
+                    <div className="text-white text-xl font-bold">Coming Soon</div>
+                  </div>
                 </div>
               )}
+              <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/90 to-transparent p-4">
+                <h3 className="text-xl font-medium text-white transition-colors">{work.title}</h3>
+                <p className="mt-2 text-sm text-white/80">{work.description}</p>
+              </div>
             </div>
           ))}
         </div>

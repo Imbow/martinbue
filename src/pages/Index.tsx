@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { ArrowDown, ArrowRight, Play } from "lucide-react";
 import { useState } from "react";
@@ -23,8 +24,8 @@ const Index = () => {
           <div className="relative h-full w-full">
             <iframe 
               src={isMobile 
-                ? "https://www.youtube.com/embed/RjdA52P69iM?autoplay=1&mute=1&loop=1&playlist=RjdA52P69iM&controls=0"
-                : "https://player.vimeo.com/video/1077359095?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&background=1&autoplay=1&loop=1&muted=1"
+                ? "https://www.youtube.com/embed/RjdA52P69iM?autoplay=1&mute=1&loop=1&playlist=RjdA52P69iM&controls=0&playsinline=1"
+                : "https://player.vimeo.com/video/1077359095?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&background=1&autoplay=1&loop=1&muted=1&playsinline=1"
               }
               frameBorder="0" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
