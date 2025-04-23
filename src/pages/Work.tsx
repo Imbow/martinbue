@@ -6,9 +6,7 @@ const Work = () => {
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
   const toggleVideo = (id: string) => {
-    if (playingVideo === id) {
-      setPlayingVideo(null);
-    } else {
+    if (playingVideo !== id) {
       setPlayingVideo(id);
     }
   };
