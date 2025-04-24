@@ -6,10 +6,12 @@ import { useState } from "react";
 const Work = () => {
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
   const toggleVideo = (id: string) => {
     if (playingVideo !== id) {
       setPlayingVideo(id);
+      setActiveVideoId(id);
       setIsPlaying(true);
     } else {
       setIsPlaying(!isPlaying);
@@ -123,10 +125,12 @@ const Work = () => {
                   </div>
                 </div>
               )}
-              <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/90 to-transparent p-4">
-                <h3 className="text-xl font-medium text-white transition-colors">{work.title}</h3>
-                <p className="mt-2 text-sm text-white/80">{work.description}</p>
-              </div>
+              {(!work.videoId || playingVideo !== work.id || activeVideoId !== work.id) && (
+                <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/90 to-transparent p-4">
+                  <h3 className="text-xl font-medium text-white transition-colors">{work.title}</h3>
+                  <p className="mt-2 text-sm text-white/80">{work.description}</p>
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -95,11 +95,11 @@ const Index = () => {
                 style={{ animationDelay: `${(index + 1) * 200}ms` }}
                 onClick={() => toggleVideo(work.id)}
               >
-                <div className="relative h-64 w-full">
+                <div className={`relative ${isMobile ? 'h-48' : 'h-64'} w-full`}>
                   {playingVideo === work.id ? (
                     <div className="h-full w-full">
                       <iframe
-                        src={`https://player.vimeo.com/video/${work.vimeoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1`}
+                        src={`https://player.vimeo.com/video/${work.vimeoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1&transparent=0&autopause=0`}
                         className="h-full w-full"
                         frameBorder="0"
                         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
