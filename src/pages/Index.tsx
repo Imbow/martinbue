@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
@@ -109,7 +109,7 @@ const Index = () => {
                     </div>
                   )}
                 </div>
-                <div className="mt-4 bg-[#464646] p-4 rounded-b-xl">
+                <div className="mt-4 bg-[#2F2F2F] p-4 rounded-b-xl">
                   <h3 className="text-xl font-medium text-white">{work.title}</h3>
                   <p className="mt-2 text-gray-200">{work.description}</p>
                 </div>
