@@ -1,6 +1,5 @@
-
 import { Link } from "react-router-dom";
-import { ArrowDown, ArrowRight, Play } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -8,13 +7,26 @@ const Index = () => {
   const isMobile = useIsMobile();
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
-  const toggleVideo = (videoId: string) => {
-    if (playingVideo === videoId) {
-      setPlayingVideo(null);
-    } else {
-      setPlayingVideo(videoId);
+  const featuredWorks = [
+    {
+      id: "video1",
+      title: "Commercial: Neurons Brand Story",
+      description: "A brand story capturing Neurons and the values behind their work.",
+      vimeoId: "1076397038"
+    },
+    {
+      id: "video2",
+      title: "Corporate: Imerco City",
+      description: "A recap of Imerco's annual summit, bringing together store managers & partners.",
+      vimeoId: "1076391791"
+    },
+    {
+      id: "video3",
+      title: "Digital Marketing: Brand Vision",
+      description: "Showcasing innovative digital marketing strategies and creative solutions.",
+      vimeoId: "1078451179"
     }
-  };
+  ];
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
@@ -69,58 +81,36 @@ const Index = () => {
             A selection of recent video projects
           </p>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                id: "video1",
-                title: "Commercial: Neurons Brand Story",
-                description: "A brand story capturing Neurons and the values behind their work.",
-                vimeoId: "1076397038",
-              },
-              {
-                id: "video2",
-                title: "Corporate: Imerco City",
-                description: "A recap of Imerco's annual summit, bringing together store managers & partners.",
-                vimeoId: "1076391791",
-              },
-              {
-                id: "video3",
-                title: "Commercial: Neurons AI",
-                description: "An explainer of Neurons' AI tool and how it helps you save time and reduce costs.",
-                vimeoId: "1011312650",
-              },
-            ].map((work, index) => (
+            {featuredWorks.map((work, index) => (
               <div
                 key={work.id}
-                className="group animate-fade-in hover-video-card opacity-0 cursor-pointer overflow-hidden rounded-xl"
+                className="group animate-fade-in opacity-0"
                 style={{ animationDelay: `${(index + 1) * 200}ms` }}
-                onClick={() => toggleVideo(work.id)}
               >
-                <div className={`relative ${isMobile ? 'h-48' : 'h-64'} w-full`}>
+                <div className={`relative ${isMobile ? 'h-48' : 'h-64'} w-full rounded-xl overflow-hidden`}>
                   {playingVideo === work.id ? (
-                    <div className="h-full w-full">
-                      <iframe
-                        src={`https://player.vimeo.com/video/${work.vimeoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1&transparent=0&autopause=0`}
-                        className="h-full w-full"
-                        frameBorder="0"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                        allowFullScreen
-                      ></iframe>
-                    </div>
+                    <iframe
+                      src={`https://player.vimeo.com/video/${work.vimeoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1&transparent=0&autopause=0`}
+                      className="w-full h-full"
+                      frameBorder="0"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
                   ) : (
-                    <div className="relative h-full w-full">
+                    <div
+                      className="w-full h-full cursor-pointer"
+                      onClick={() => setPlayingVideo(work.id)}
+                    >
                       <img
                         src={`https://vumbnail.com/${work.vimeoId}.jpg`}
-                        className="h-full w-full object-cover rounded-xl"
                         alt={work.title}
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 transition-opacity group-hover:opacity-70">
-                        <Play className="h-16 w-16 text-white opacity-80 group-hover:opacity-100 transition-opacity" />
-                      </div>
                     </div>
                   )}
                 </div>
-                <div className="p-4 bg-gray-700 bg-opacity-90">
-                  <h3 className="text-xl font-medium text-white group-hover:text-white transition-colors">{work.title}</h3>
+                <div className="mt-4">
+                  <h3 className="text-xl font-medium text-white">{work.title}</h3>
                   <p className="mt-2 text-gray-300">{work.description}</p>
                 </div>
               </div>
