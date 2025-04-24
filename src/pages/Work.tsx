@@ -1,67 +1,25 @@
 
-import { ArrowLeft, Play, Pause } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Work = () => {
-  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
-  const toggleVideo = (id: string) => {
-    if (playingVideo !== id) {
-      setPlayingVideo(id);
-      setActiveVideoId(id);
-      setIsPlaying(true);
-    } else {
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  // Array of work items with real videos and placeholders
-  const workItems = [
+  const videos = [
     {
       id: "video1",
-      title: "Video 1",
-      videoId: "1076397038",
-      description: "Commercial brand video with cinematic visuals",
+      videoId: "1076397038"
     },
     {
       id: "video2",
-      title: "Video 2",
-      videoId: "338242418",
-      description: "Restaurant promotional video showcasing fine dining experience",
+      videoId: "338242418"
     },
-    {
-      id: "placeholder1",
-      title: "Video 3",
-      thumbnail: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=800",
-      description: "Placeholder for upcoming video project",
-    },
-    {
-      id: "placeholder2",
-      title: "Video 4",
-      thumbnail: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=800",
-      description: "Placeholder for upcoming video project",
-    },
-    {
-      id: "placeholder3",
-      title: "Video 5",
-      thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
-      description: "Placeholder for upcoming video project",
-    },
-    {
-      id: "placeholder4",
-      title: "Video 6",
-      thumbnail: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
-      description: "Placeholder for upcoming video project",
-    },
-    {
-      id: "placeholder5",
-      title: "Video 7",
-      thumbnail: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800",
-      description: "Placeholder for upcoming video project",
-    },
+    // Placeholders for future videos
+    { id: "placeholder1" },
+    { id: "placeholder2" },
+    { id: "placeholder3" },
+    { id: "placeholder4" },
   ];
 
   return (
@@ -83,52 +41,33 @@ const Work = () => {
         </p>
         
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {workItems.map((work, index) => (
+          {videos.map((video) => (
             <div
-              key={work.id}
-              className="group hover-video-card animate-fade-in opacity-0 relative rounded-xl overflow-hidden"
-              style={{ animationDelay: `${index * 100}ms` }}
-              onClick={() => work.videoId && toggleVideo(work.id)}
+              key={video.id}
+              className="group animate-fade-in opacity-0 rounded-xl overflow-hidden"
+              onClick={() => video.videoId && setActiveVideo(video.id)}
             >
-              {work.videoId ? (
-                <div className="aspect-video w-full relative">
-                  {playingVideo === work.id ? (
+              {video.videoId ? (
+                <div className="aspect-video w-full">
+                  {activeVideo === video.id ? (
                     <iframe
-                      src={`https://player.vimeo.com/video/${work.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1&autopause=0&transparent=0&player_id=${work.id}`}
+                      src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1&transparent=0&autopause=0&player_id=${video.id}`}
                       className="w-full h-full rounded-xl"
                       frameBorder="0"
                       allow="autoplay; fullscreen; picture-in-picture"
                       allowFullScreen
                     ></iframe>
                   ) : (
-                    <>
-                      <img
-                        src={`https://vumbnail.com/${work.videoId}.jpg`}
-                        alt={work.title}
-                        className="w-full h-full object-cover rounded-xl"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity group-hover:opacity-70">
-                        <Play className="h-16 w-16 text-white opacity-80 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                    </>
+                    <img
+                      src={`https://vumbnail.com/${video.videoId}.jpg`}
+                      alt="Video thumbnail"
+                      className="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-80 transition-opacity"
+                    />
                   )}
                 </div>
               ) : (
-                <div className="aspect-video w-full relative">
-                  <img
-                    src={work.thumbnail}
-                    alt={work.title}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 transition-opacity">
-                    <div className="text-white text-xl font-bold">Coming Soon</div>
-                  </div>
-                </div>
-              )}
-              {(!work.videoId || playingVideo !== work.id || activeVideoId !== work.id) && (
-                <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/90 to-transparent p-4">
-                  <h3 className="text-xl font-medium text-white transition-colors">{work.title}</h3>
-                  <p className="mt-2 text-sm text-white/80">{work.description}</p>
+                <div className="aspect-video w-full bg-gray-800 rounded-xl flex items-center justify-center">
+                  <span className="text-gray-400">Coming Soon</span>
                 </div>
               )}
             </div>
@@ -140,3 +79,4 @@ const Work = () => {
 };
 
 export default Work;
+
