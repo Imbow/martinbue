@@ -109,9 +109,9 @@ const Index = () => {
                     </div>
                   )}
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 bg-[#464646] p-4 rounded-b-xl">
                   <h3 className="text-xl font-medium text-white">{work.title}</h3>
-                  <p className="mt-2 text-gray-300">{work.description}</p>
+                  <p className="mt-2 text-gray-200">{work.description}</p>
                 </div>
               </div>
             ))}
