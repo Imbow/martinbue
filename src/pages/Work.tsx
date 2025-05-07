@@ -1,13 +1,15 @@
 
 import { ArrowLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogOverlay } from "@/components/ui/dialog";
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 
 const Work = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
   const [cinemaMode, setCinemaMode] = useState<string | null>(null);
+  const [preloadedVideos, setPreloadedVideos] = useState<string[]>([]);
 
   const videos = [
     {
@@ -25,6 +27,13 @@ const Work = () => {
     { id: "placeholder4" },
   ];
 
+  // Preload videos when component mounts
+  useEffect(() => {
+    // Create hidden iframes to preload videos
+    const videosToPreload = videos.filter(video => video.videoId).map(video => video.videoId as string);
+    setPreloadedVideos(videosToPreload);
+  }, []);
+
   const handleOpenCinema = (videoId: string) => {
     console.log("Opening cinema mode for:", videoId);
     setCinemaMode(videoId);
@@ -32,6 +41,18 @@ const Work = () => {
 
   return (
     <div className="min-h-screen w-full">
+      {/* Preload iframes (hidden) */}
+      <div className="hidden">
+        {preloadedVideos.map(videoId => (
+          <iframe
+            key={`preload-${videoId}`}
+            src={`https://player.vimeo.com/video/${videoId}?preload=auto&background=1&autoplay=0`}
+            style={{ display: 'none' }}
+            title="Preloaded video"
+          ></iframe>
+        ))}
+      </div>
+
       <div className="container px-4 py-8">
         <div className="pt-8 flex items-center gap-4 mb-8">
           <Link 
@@ -53,31 +74,34 @@ const Work = () => {
             <div
               key={video.id}
               className="group animate-fade-in opacity-0 rounded-xl overflow-hidden"
-              onMouseEnter={() => video.videoId && setHoveredVideo(video.id)}
-              onMouseLeave={() => setHoveredVideo(null)}
             >
               {video.videoId ? (
-                <div 
-                  className="aspect-video w-full relative"
-                  onClick={() => video.videoId && handleOpenCinema(video.id)}
-                >
-                  <div className="absolute inset-0 z-10 cursor-pointer" />
-                  {hoveredVideo === video.id ? (
-                    <iframe
-                      src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=0&playsinline=1&transparent=1&autopause=0&player_id=${video.id}&background=1`}
-                      className="w-full h-full rounded-xl"
-                      frameBorder="0"
-                      allow="autoplay; fullscreen; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  ) : (
-                    <img
-                      src={`https://vumbnail.com/${video.videoId}.jpg`}
-                      alt="Video thumbnail"
-                      className="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-80 transition-opacity"
-                    />
-                  )}
-                </div>
+                <HoverCard openDelay={0} closeDelay={0}>
+                  <HoverCardTrigger asChild>
+                    <div 
+                      className="aspect-video w-full relative cursor-pointer"
+                      onClick={() => video.videoId && handleOpenCinema(video.id)}
+                      onMouseEnter={() => video.videoId && setHoveredVideo(video.id)}
+                      onMouseLeave={() => setHoveredVideo(null)}
+                    >
+                      <div className="absolute inset-0 z-10" />
+                      <img
+                        src={`https://vumbnail.com/${video.videoId}.jpg`}
+                        alt="Video thumbnail"
+                        className={`w-full h-full object-cover rounded-xl transition-opacity ${hoveredVideo === video.id ? 'opacity-0' : 'opacity-100'}`}
+                      />
+                      {hoveredVideo === video.id && (
+                        <iframe
+                          src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=0&playsinline=1&transparent=1&autopause=0&player_id=${video.id}&background=1`}
+                          className="w-full h-full rounded-xl absolute top-0 left-0"
+                          frameBorder="0"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      )}
+                    </div>
+                  </HoverCardTrigger>
+                </HoverCard>
               ) : (
                 <div className="aspect-video w-full bg-gray-800 rounded-xl flex items-center justify-center">
                   <span className="text-gray-400">Coming Soon</span>
