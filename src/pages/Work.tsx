@@ -50,10 +50,12 @@ const Work = () => {
               className="group animate-fade-in opacity-0 rounded-xl overflow-hidden"
               onMouseEnter={() => video.videoId && setHoveredVideo(video.id)}
               onMouseLeave={() => setHoveredVideo(null)}
-              onClick={() => video.videoId && setCinemaMode(video.id)}
             >
               {video.videoId ? (
-                <div className="aspect-video w-full">
+                <div 
+                  className="aspect-video w-full cursor-pointer"
+                  onClick={() => setCinemaMode(video.id)}
+                >
                   {hoveredVideo === video.id ? (
                     <iframe
                       src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=0&playsinline=1&transparent=1&autopause=0&player_id=${video.id}&background=1`}
