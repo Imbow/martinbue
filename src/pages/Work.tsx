@@ -25,6 +25,11 @@ const Work = () => {
     { id: "placeholder4" },
   ];
 
+  const handleOpenCinema = (videoId: string) => {
+    console.log("Opening cinema mode for:", videoId);
+    setCinemaMode(videoId);
+  };
+
   return (
     <div className="min-h-screen w-full">
       <div className="container px-4 py-8">
@@ -53,9 +58,10 @@ const Work = () => {
             >
               {video.videoId ? (
                 <div 
-                  className="aspect-video w-full cursor-pointer"
-                  onClick={() => setCinemaMode(video.id)}
+                  className="aspect-video w-full relative"
+                  onClick={() => video.videoId && handleOpenCinema(video.id)}
                 >
+                  <div className="absolute inset-0 z-10 cursor-pointer" />
                   {hoveredVideo === video.id ? (
                     <iframe
                       src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=0&playsinline=1&transparent=1&autopause=0&player_id=${video.id}&background=1`}
