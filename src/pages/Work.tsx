@@ -1,10 +1,13 @@
 
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Dialog, DialogContent, DialogOverlay } from "@/components/ui/dialog";
 
 const Work = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
+  const [cinemaMode, setCinemaMode] = useState<string | null>(null);
 
   const videos = [
     {
@@ -45,13 +48,15 @@ const Work = () => {
             <div
               key={video.id}
               className="group animate-fade-in opacity-0 rounded-xl overflow-hidden"
-              onClick={() => video.videoId && setActiveVideo(video.id)}
+              onMouseEnter={() => video.videoId && setHoveredVideo(video.id)}
+              onMouseLeave={() => setHoveredVideo(null)}
+              onClick={() => video.videoId && setCinemaMode(video.id)}
             >
               {video.videoId ? (
                 <div className="aspect-video w-full">
-                  {activeVideo === video.id ? (
+                  {hoveredVideo === video.id ? (
                     <iframe
-                      src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1&transparent=0&autopause=0&player_id=${video.id}`}
+                      src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=0&playsinline=1&transparent=1&autopause=0&player_id=${video.id}&background=1`}
                       className="w-full h-full rounded-xl"
                       frameBorder="0"
                       allow="autoplay; fullscreen; picture-in-picture"
@@ -74,9 +79,35 @@ const Work = () => {
           ))}
         </div>
       </div>
+
+      {/* Cinema Mode Dialog */}
+      <Dialog open={cinemaMode !== null} onOpenChange={(open) => !open && setCinemaMode(null)}>
+        <DialogOverlay className="bg-black/90" />
+        <DialogContent className="max-w-4xl border-none bg-transparent p-0 shadow-none">
+          <button 
+            onClick={() => setCinemaMode(null)}
+            className="absolute right-4 top-4 z-10 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 transition-colors"
+            aria-label="Close cinema mode"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          
+          {cinemaMode && videos.find(v => v.id === cinemaMode)?.videoId && (
+            <div className="aspect-video w-full">
+              <iframe
+                src={`https://player.vimeo.com/video/${videos.find(v => v.id === cinemaMode)?.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=1&transparent=0&autopause=0`}
+                className="w-full h-full rounded-xl"
+                style={{ maxHeight: "80vh" }}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
 
 export default Work;
-
