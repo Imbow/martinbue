@@ -68,6 +68,15 @@ const Work = () => {
       id: "video14",
       videoId: "725411022"
     },
+    // Adding the two new videos below the existing ones
+    {
+      id: "video15",
+      videoId: "359708590"
+    },
+    {
+      id: "video16",
+      videoId: "1083336732"
+    },
     { id: "placeholder1" },
     { id: "placeholder2" },
     { id: "placeholder3" },
