@@ -76,24 +76,50 @@ const Work = () => {
     {
       id: "video16",
       videoId: "1083336732"
-    },
-    { id: "placeholder1" },
-    { id: "placeholder2" },
-    { id: "placeholder3" },
-    { id: "placeholder4" },
+    }
   ];
+
+  // Calculate the number of placeholders needed to complete the last row
+  const calculatePlaceholders = () => {
+    const itemsPerRow = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+    const remainder = videos.length % itemsPerRow;
+    // If the row is already complete, return 0, otherwise return the number needed to complete the row
+    return remainder === 0 ? itemsPerRow : itemsPerRow - remainder;
+  };
+
+  const [placeholdersCount, setPlaceholdersCount] = useState(calculatePlaceholders());
+
+  // Recalculate placeholders when window resizes
+  useEffect(() => {
+    const handleResize = () => {
+      setPlaceholdersCount(calculatePlaceholders());
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [videos.length]);
 
   // Preload videos when component mounts
   useEffect(() => {
     // Create hidden iframes to preload videos
     const videosToPreload = videos.filter(video => video.videoId).map(video => video.videoId as string);
     setPreloadedVideos(videosToPreload);
+    
+    // Initial calculation of placeholders
+    setPlaceholdersCount(calculatePlaceholders());
   }, []);
 
   const handleOpenCinema = (videoId: string) => {
     console.log("Opening cinema mode for:", videoId);
     setCinemaMode(videoId);
   };
+
+  // Generate placeholders based on calculated count
+  const placeholders = Array.from({ length: placeholdersCount }, (_, index) => ({
+    id: `placeholder${index + 1}`
+  }));
+
+  const allItems = [...videos, ...placeholders];
 
   return (
     <div className="min-h-screen w-full">
@@ -126,29 +152,29 @@ const Work = () => {
         </p>
         
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {videos.map((video) => (
+          {allItems.map((item) => (
             <div
-              key={video.id}
+              key={item.id}
               className="group animate-fade-in opacity-0 rounded-xl overflow-hidden"
             >
-              {video.videoId ? (
+              {item.videoId ? (
                 <HoverCard openDelay={0} closeDelay={0}>
                   <HoverCardTrigger asChild>
                     <div 
                       className="aspect-video w-full relative cursor-pointer"
-                      onClick={() => video.videoId && handleOpenCinema(video.id)}
-                      onMouseEnter={() => video.videoId && setHoveredVideo(video.id)}
+                      onClick={() => item.videoId && handleOpenCinema(item.id)}
+                      onMouseEnter={() => item.videoId && setHoveredVideo(item.id)}
                       onMouseLeave={() => setHoveredVideo(null)}
                     >
                       <div className="absolute inset-0 z-10" />
                       <img
-                        src={`https://vumbnail.com/${video.videoId}.jpg`}
+                        src={`https://vumbnail.com/${item.videoId}.jpg`}
                         alt="Video thumbnail"
-                        className={`w-full h-full object-cover rounded-xl transition-opacity ${hoveredVideo === video.id ? 'opacity-0' : 'opacity-100'}`}
+                        className={`w-full h-full object-cover rounded-xl transition-opacity ${hoveredVideo === item.id ? 'opacity-0' : 'opacity-100'}`}
                       />
-                      {hoveredVideo === video.id && (
+                      {hoveredVideo === item.id && (
                         <iframe
-                          src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=0&playsinline=1&transparent=1&autopause=0&player_id=${video.id}&background=1`}
+                          src={`https://player.vimeo.com/video/${item.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=0&playsinline=1&transparent=1&autopause=0&player_id=${item.id}&background=1`}
                           className="w-full h-full rounded-xl absolute top-0 left-0"
                           frameBorder="0"
                           allow="autoplay; fullscreen; picture-in-picture"
