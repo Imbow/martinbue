@@ -1,4 +1,3 @@
-
 import { ArrowLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -20,7 +19,54 @@ const Work = () => {
       id: "video2",
       videoId: "338242418"
     },
-    // Placeholders for future videos
+    {
+      id: "video3",
+      videoId: "1077355301"
+    },
+    {
+      id: "video4",
+      videoId: "1077355173"
+    },
+    {
+      id: "video5",
+      videoId: "283184274"
+    },
+    {
+      id: "video6",
+      videoId: "1083316472"
+    },
+    {
+      id: "video7",
+      videoId: "366076919"
+    },
+    {
+      id: "video8",
+      videoId: "382828911"
+    },
+    {
+      id: "video9",
+      videoId: "413135509"
+    },
+    {
+      id: "video10",
+      videoId: "414972452"
+    },
+    {
+      id: "video11",
+      videoId: "447223574"
+    },
+    {
+      id: "video12",
+      videoId: "440255508"
+    },
+    {
+      id: "video13",
+      videoId: "360461474"
+    },
+    {
+      id: "video14",
+      videoId: "725411022"
+    },
     { id: "placeholder1" },
     { id: "placeholder2" },
     { id: "placeholder3" },
