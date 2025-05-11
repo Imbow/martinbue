@@ -1,3 +1,4 @@
+
 import { ArrowLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -20,8 +21,8 @@ const Work = () => {
       videoId: "338242418"
     },
     {
-      id: "video3",
-      videoId: "1077355301"
+      id: "video6", // Swapped position (was video3)
+      videoId: "1083316472" // This is the second video to swap
     },
     {
       id: "video4",
@@ -32,8 +33,8 @@ const Work = () => {
       videoId: "283184274"
     },
     {
-      id: "video6",
-      videoId: "1083316472"
+      id: "video3", // Swapped position (was video6)
+      videoId: "1077355301" // This is the first video to swap
     },
     {
       id: "video7",
