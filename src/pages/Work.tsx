@@ -1,4 +1,3 @@
-
 import { ArrowLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -41,8 +40,8 @@ const Work = () => {
       videoId: "366076919"
     },
     {
-      id: "video8", 
-      videoId: "248055805" // Updated to 2D platform explainer Animation
+      id: "video8",
+      videoId: "382828911"
     },
     {
       id: "video9",
