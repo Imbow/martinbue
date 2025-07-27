@@ -17,7 +17,7 @@ const About = () => {
         
         <div className="mb-12 relative h-[400px] overflow-hidden rounded-xl">
           <img 
-            src="/lovable-uploads/6d934841-6c6e-4056-b56b-3b398a5b9523.png" 
+            src="/lovable-uploads/547ffb49-3c74-42d7-b41a-a7ab024b3ce2.png" 
             alt="Videographer with camera" 
             className="w-full h-full object-cover"
           />
