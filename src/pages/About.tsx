@@ -17,15 +17,15 @@ const About = () => {
         
         <div className="mb-12 relative h-[400px] overflow-hidden rounded-xl">
           <img 
-            src="https://images.unsplash.com/photo-1616432043562-3e156e3dc9d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
-            alt="Videographer at work" 
+            src="/lovable-uploads/6d934841-6c6e-4056-b56b-3b398a5b9523.png" 
+            alt="Videographer with camera" 
             className="w-full h-full object-cover"
           />
         </div>
 
         <div className="prose prose-lg max-w-none prose-invert">
           <p className="text-lg leading-relaxed mb-6 text-gray-200">
-            I believe that every story has a unique pulse—a rhythm and emotion that deserves to be captured authentically. My approach to videography is centered around finding that heartbeat and translating it into visual language that resonates with viewers.
+            I believe great visual content starts with clarity and collaboration. Whether it's a short-form animated explainer or a full-length testimonial edit, my approach blends creativity with structure, ensuring each project moves smoothly from concept to final delivery. I aim to create work that not only looks sharp but also serves a clear purpose.
           </p>
 
           <h2 className="text-2xl font-semibold mt-10 mb-4 flex items-center text-white">
@@ -33,7 +33,7 @@ const About = () => {
             Authentic Storytelling
           </h2>
           <p className="mb-8 text-gray-200">
-            Whether I'm shooting a commercial, documenting an event, or creating corporate content, my priority is always authenticity. I strive to capture genuine moments rather than manufactured ones, creating a narrative that feels true to your brand, event, or message.
+            From brand campaigns to product launches, my work is rooted in storytelling that feels real. I specialize in content that connects, whether it's through dynamic animation, polished video edits, or interview-driven narratives. I strive to elevate each message with authenticity, making sure it reflects your brand and resonates with your audience.
           </p>
 
           <h2 className="text-2xl font-semibold mt-10 mb-4 flex items-center text-white">
@@ -41,7 +41,7 @@ const About = () => {
             Technical Excellence
           </h2>
           <p className="mb-8 text-gray-200">
-            With years of experience behind the camera, I've developed a keen eye for composition, lighting, and movement. I use state-of-the-art equipment and post-production techniques to ensure every frame is visually stunning, but I never let technology overshadow the story.
+            Tools like After Effects, Premiere Pro, and Figma are part of my daily workflow, but I never let software overshadow storytelling. With experience managing end-to-end video production across departments and deadlines, I bring both technical expertise and project leadership to the table. I'm just as comfortable fine-tuning animations as I am coordinating timelines and aligning teams.
           </p>
 
           <h2 className="text-2xl font-semibold mt-10 mb-4 flex items-center text-white">
@@ -49,11 +49,11 @@ const About = () => {
             What Makes Me Different
           </h2>
           <p className="mb-8 text-gray-200">
-            My background in both documentary and commercial filmmaking gives me a unique perspective. I bring documentary authenticity to commercial projects and cinematic quality to documentary work. This versatility allows me to adapt to your specific needs while maintaining a consistent level of quality and creativity.
+            I'm not just here to design and edit, I'm here to make things work. With a background as an in-house video lead at a fast-paced B2B tech company, I know how to manage multiple stakeholders, keep production on track, and pivot quickly when challenges come up. I bring a solutions-first mindset to every project, along with a calm, collaborative energy that helps teams do their best work.
           </p>
 
           <p className="text-lg mt-12 text-gray-200">
-            I approach each project as a collaboration, working closely with clients to understand their vision and bring it to life in ways that exceed expectations. Whether you're looking to promote a product, document a milestone, or tell your brand's story, I'm here to help you create something truly memorable.
+            When I'm not deep in Adobe land, I'm probably out hiking, planning my next trip, or catching up on a dozen podcasts covering everything from behavioral science to emerging tech. I'm always exploring, creatively and otherwise, and I bring that curiosity into every project I take on.
           </p>
         </div>
 
