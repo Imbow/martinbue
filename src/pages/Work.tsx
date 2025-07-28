@@ -1,4 +1,3 @@
-
 import { ArrowLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -9,7 +8,7 @@ const Work = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
   const [cinemaMode, setCinemaMode] = useState<string | null>(null);
-  const [preloadedVideos, setPreloadedVideos] = useState<string[]>([]);
+  const [preloadedPlayers, setPreloadedPlayers] = useState<{[key: string]: HTMLIFrameElement}>({});
 
   const videos = [
     {
@@ -17,7 +16,7 @@ const Work = () => {
       videoId: "1076397038"
     },
     {
-      id: "video2",
+      id: "video2", 
       videoId: "338242418"
     },
     {
@@ -99,14 +98,36 @@ const Work = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [videos.length]);
 
-  // Preload videos when component mounts
+  // Enhanced preloading with ready-to-play iframes
   useEffect(() => {
-    // Create hidden iframes to preload videos
-    const videosToPreload = videos.filter(video => video.videoId).map(video => video.videoId as string);
-    setPreloadedVideos(videosToPreload);
+    const preloadedIframes: {[key: string]: HTMLIFrameElement} = {};
     
-    // Initial calculation of placeholders
+    videos.forEach((video) => {
+      if (video.videoId) {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://player.vimeo.com/video/${video.videoId}?preload=metadata&background=1&autoplay=0&title=0&byline=0&portrait=0&controls=0&playsinline=1&transparent=1&autopause=0&player_id=preload_${video.id}`;
+        iframe.style.display = 'none';
+        iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('frameborder', '0');
+        
+        // Add to DOM for preloading
+        document.body.appendChild(iframe);
+        preloadedIframes[video.id] = iframe;
+      }
+    });
+
+    setPreloadedPlayers(preloadedIframes);
     setPlaceholdersCount(calculatePlaceholders());
+
+    // Cleanup function
+    return () => {
+      Object.values(preloadedIframes).forEach(iframe => {
+        if (iframe.parentNode) {
+          iframe.parentNode.removeChild(iframe);
+        }
+      });
+    };
   }, []);
 
   const handleOpenCinema = (videoId: string) => {
@@ -124,18 +145,6 @@ const Work = () => {
 
   return (
     <div className="min-h-screen w-full">
-      {/* Preload iframes (hidden) */}
-      <div className="hidden">
-        {preloadedVideos.map(videoId => (
-          <iframe
-            key={`preload-${videoId}`}
-            src={`https://player.vimeo.com/video/${videoId}?preload=auto&background=1&autoplay=0`}
-            style={{ display: 'none' }}
-            title="Preloaded video"
-          ></iframe>
-        ))}
-      </div>
-
       <div className="container px-4 py-8">
         <div className="pt-8 flex items-center gap-4 mb-8">
           <Link 
@@ -171,11 +180,11 @@ const Work = () => {
                       <img
                         src={`https://vumbnail.com/${item.videoId}.jpg`}
                         alt="Video thumbnail"
-                        className={`w-full h-full object-cover rounded-xl transition-opacity ${hoveredVideo === item.id ? 'opacity-0' : 'opacity-100'}`}
+                        className={`w-full h-full object-cover rounded-xl transition-opacity duration-200 ${hoveredVideo === item.id ? 'opacity-0' : 'opacity-100'}`}
                       />
                       {hoveredVideo === item.id && (
                         <iframe
-                          src={`https://player.vimeo.com/video/${item.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=0&playsinline=1&transparent=1&autopause=0&player_id=${item.id}&background=1`}
+                          src={`https://player.vimeo.com/video/${item.videoId}?autoplay=1&title=0&byline=0&portrait=0&controls=0&playsinline=1&transparent=1&autopause=0&player_id=${item.id}&background=1&speed=1&quality=720p&preload=metadata`}
                           className="w-full h-full rounded-xl absolute top-0 left-0"
                           frameBorder="0"
                           allow="autoplay; fullscreen; picture-in-picture"
