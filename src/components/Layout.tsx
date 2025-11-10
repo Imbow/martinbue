@@ -57,6 +57,14 @@ const Layout = ({ children }: LayoutProps) => {
                 Work
               </Link>
               <Link
+                to="/showreel"
+                className={`text-white hover:text-gray-200 transition-colors ${
+                  location.pathname === "/showreel" ? "border-b-2 border-white" : ""
+                }`}
+              >
+                Showreel
+              </Link>
+              <Link
                 to="/about"
                 className={`text-white hover:text-gray-200 transition-colors ${
                   location.pathname === "/about" ? "border-b-2 border-white" : ""
@@ -97,6 +105,13 @@ const Layout = ({ children }: LayoutProps) => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Work
+                </Link>
+                <Link
+                  to="/showreel"
+                  className="text-white hover:text-gray-200 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Showreel
                 </Link>
                 <Link
                   to="/about"
