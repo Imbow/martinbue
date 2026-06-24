@@ -52,10 +52,10 @@ const Index = () => {
         <div className="relative z-10 flex h-full items-center justify-center px-4">
           <div className="text-center">
             <h1 className="animate-fade-in text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Crafting Visual Stories
+              Turning Expertise into Content
             </h1>
             <p className="mx-auto mt-6 max-w-lg animate-fade-in text-lg text-gray-200 opacity-0 font-bold [animation-delay:300ms]">
-              Professional videographer specializing in creating compelling visual narratives
+              Video, webinars, and content systems for B2B SaaS.
             </p>
             <Link
               to="/work"
