@@ -12,6 +12,10 @@ const Work = () => {
 
   const videos = [
     {
+      id: "video0",
+      videoId: "1133502062"
+    },
+    {
       id: "video1",
       videoId: "1076397038"
     },
