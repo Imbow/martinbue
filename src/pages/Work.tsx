@@ -14,7 +14,7 @@ const Work = () => {
   const videos: { id: string; videoId: string; thumbnail?: string }[] = [
     {
       id: "video20",
-      videoId: "1225012237"
+      videoId: "1225020659"
     },
     {
       id: "video18",
