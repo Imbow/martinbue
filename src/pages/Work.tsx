@@ -11,7 +11,7 @@ const Work = () => {
   const [cinemaMode, setCinemaMode] = useState<string | null>(null);
   const [preloadedPlayers, setPreloadedPlayers] = useState<{[key: string]: HTMLIFrameElement}>({});
 
-  const videos = [
+  const videos: { id: string; videoId: string; thumbnail?: string }[] = [
     {
       id: "video18",
       videoId: "1225008043"
