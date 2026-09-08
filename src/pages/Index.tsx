@@ -122,7 +122,7 @@ const Index = () => {
               to="/work"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black border border-black rounded-md hover:bg-gray-100 transition-colors"
             >
-              See All Work
+              See More Work
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
