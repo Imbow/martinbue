@@ -26,10 +26,6 @@ const Work = () => {
       thumbnail: customThumb1225008729
     },
     {
-      id: "video17",
-      videoId: "1225007044"
-    },
-    {
       id: "video1",
       videoId: "1076397038"
     },
