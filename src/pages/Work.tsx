@@ -199,7 +199,7 @@ const Work = () => {
                       <img
                         src={item.thumbnail || `https://vumbnail.com/${item.videoId}.jpg`}
                         alt="Video thumbnail"
-                        className={`w-full h-full object-cover rounded-xl transition-opacity duration-200 ${hoveredVideo === item.id ? 'opacity-0' : 'opacity-100'}`}
+                        className={`w-full h-full object-cover rounded-xl transition-opacity duration-200 ${item.thumbnail ? 'object-top' : ''} ${hoveredVideo === item.id ? 'opacity-0' : 'opacity-100'}`}
                       />
                       {hoveredVideo === item.id && (
                         <iframe
