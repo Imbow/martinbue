@@ -162,7 +162,7 @@ const Work = () => {
         
         <h1 className="text-4xl font-bold mb-4 text-white">Work</h1>
         <p className="text-gray-300 max-w-2xl mb-12">
-          Explore my portfolio of video projects, from brand campaigns to corporate events and personal work. Each crafted with a dedication to visual storytelling and creative excellence.
+          Explore selected video projects, from brand campaigns to corporate events and personal work. Each crafted with a dedication to visual storytelling and creative excellence.
         </p>
         
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
