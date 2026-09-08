@@ -13,6 +13,10 @@ const Work = () => {
 
   const videos: { id: string; videoId: string; thumbnail?: string }[] = [
     {
+      id: "video20",
+      videoId: "1225012237"
+    },
+    {
       id: "video18",
       videoId: "1225008043"
     },
@@ -24,10 +28,6 @@ const Work = () => {
     {
       id: "video17",
       videoId: "1225007044"
-    },
-    {
-      id: "video0",
-      videoId: "1133502062"
     },
     {
       id: "video1",
