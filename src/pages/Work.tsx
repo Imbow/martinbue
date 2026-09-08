@@ -156,7 +156,8 @@ const Work = () => {
   // Generate placeholders based on calculated count
   const placeholders = Array.from({ length: placeholdersCount }, (_, index) => ({
     id: `placeholder${index + 1}`,
-    videoId: undefined as string | undefined
+    videoId: undefined as string | undefined,
+    thumbnail: undefined as string | undefined
   }));
 
   const allItems = [...videos, ...placeholders];
