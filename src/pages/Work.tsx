@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogOverlay } from "@/components/ui/dialog";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
+import customThumb1225008729 from "@/assets/video1225008729-thumb.png";
 
 const Work = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
@@ -10,14 +11,15 @@ const Work = () => {
   const [cinemaMode, setCinemaMode] = useState<string | null>(null);
   const [preloadedPlayers, setPreloadedPlayers] = useState<{[key: string]: HTMLIFrameElement}>({});
 
-  const videos = [
+  const videos: { id: string; videoId: string; thumbnail?: string }[] = [
     {
       id: "video18",
       videoId: "1225008043"
     },
     {
       id: "video19",
-      videoId: "1225008729"
+      videoId: "1225008729",
+      thumbnail: customThumb1225008729
     },
     {
       id: "video17",
@@ -154,7 +156,8 @@ const Work = () => {
   // Generate placeholders based on calculated count
   const placeholders = Array.from({ length: placeholdersCount }, (_, index) => ({
     id: `placeholder${index + 1}`,
-    videoId: undefined as string | undefined
+    videoId: undefined as string | undefined,
+    thumbnail: undefined as string | undefined
   }));
 
   const allItems = [...videos, ...placeholders];
@@ -194,7 +197,7 @@ const Work = () => {
                     >
                       <div className="absolute inset-0 z-10" />
                       <img
-                        src={`https://vumbnail.com/${item.videoId}.jpg`}
+                        src={item.thumbnail || `https://vumbnail.com/${item.videoId}.jpg`}
                         alt="Video thumbnail"
                         className={`w-full h-full object-cover rounded-xl transition-opacity duration-200 ${hoveredVideo === item.id ? 'opacity-0' : 'opacity-100'}`}
                       />
