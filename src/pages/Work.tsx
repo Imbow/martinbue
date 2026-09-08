@@ -26,10 +26,6 @@ const Work = () => {
       thumbnail: customThumb1225008729
     },
     {
-      id: "video17",
-      videoId: "1225007044"
-    },
-    {
       id: "video1",
       videoId: "1076397038"
     },
@@ -101,7 +97,7 @@ const Work = () => {
     const itemsPerRow = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
     const remainder = videos.length % itemsPerRow;
     // If the row is already complete, return 0, otherwise return the number needed to complete the row
-    return remainder === 0 ? itemsPerRow : itemsPerRow - remainder;
+    return remainder === 0 ? 0 : itemsPerRow - remainder;
   };
 
   const [placeholdersCount, setPlaceholdersCount] = useState(calculatePlaceholders());
@@ -199,7 +195,7 @@ const Work = () => {
                       <img
                         src={item.thumbnail || `https://vumbnail.com/${item.videoId}.jpg`}
                         alt="Video thumbnail"
-                        className={`w-full h-full object-cover rounded-xl transition-opacity duration-200 ${item.thumbnail ? 'object-[center_40%]' : ''} ${hoveredVideo === item.id ? 'opacity-0' : 'opacity-100'}`}
+                        className={`w-full h-full object-cover rounded-xl transition-opacity duration-200 ${item.thumbnail ? 'object-[center_20%]' : ''} ${hoveredVideo === item.id ? 'opacity-0' : 'opacity-100'}`}
                       />
                       {hoveredVideo === item.id && (
                         <iframe
