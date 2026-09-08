@@ -97,7 +97,7 @@ const Work = () => {
     const itemsPerRow = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
     const remainder = videos.length % itemsPerRow;
     // If the row is already complete, return 0, otherwise return the number needed to complete the row
-    return remainder === 0 ? itemsPerRow : itemsPerRow - remainder;
+    return remainder === 0 ? 0 : itemsPerRow - remainder;
   };
 
   const [placeholdersCount, setPlaceholdersCount] = useState(calculatePlaceholders());
